@@ -12,8 +12,8 @@ namespace Hostel
         RoomType Type { get; }
         double Price { get; }
         bool IsOccupied { get; }
-        void CheckIn();
-        void CheckOut();
+        //void CheckIn();
+        //void CheckOut();
     }
 
     

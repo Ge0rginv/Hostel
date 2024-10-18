@@ -21,11 +21,11 @@ namespace Hostel
         {
             for (int i = 1; i <= totalRooms; i++)
             {
-                if (i <= 10) rooms.Add(new Suite(i));
-                else if (i <= 15) rooms.Add(new HalfSuite(i));
-                else if (i <= 20) rooms.Add(new DoubleRoom(i));
-                else if (i <= 25) rooms.Add(new DoubleWithSofa(i));
-                else rooms.Add(new SingleRoom(i));
+                if (i <= 10) rooms.Add(new Suite(i, 1));
+                else if (i <= 15) rooms.Add(new HalfSuite(i, 1));
+                else if (i <= 20) rooms.Add(new DoubleRoom(i, 2));
+                else if (i <= 25) rooms.Add(new DoubleWithSofa(i, 2));
+                else rooms.Add(new SingleRoom(i, 1));
             }
         }
 
@@ -34,7 +34,7 @@ namespace Hostel
             var room = rooms.FirstOrDefault(r => r.Type == type && !r.IsOccupied);
             if (room != null)
             {
-                room.CheckIn();
+                //room.CheckIn();
                 Console.WriteLine($"Room {room.Number} of type {room.Type} booked.");
                 return true;
             }
@@ -47,7 +47,7 @@ namespace Hostel
             var room = rooms.FirstOrDefault(r => r.Number == roomNumber);
             if (room != null && room.IsOccupied)
             {
-                room.CheckOut();
+                //room.CheckOut();
                 Console.WriteLine($"Room {room.Number} checked out.");
             }
             else
@@ -60,9 +60,15 @@ namespace Hostel
         {
             foreach (var room in rooms)
             {
+                // исправить вывод данных
                 Console.WriteLine($"Room {room.Number}: Type = {room.Type}, Price = {room.Price}, Occupied = {room.IsOccupied}");
             }
         }
     }
 
 }
+/*
+ * ресепшен прием и обработка заявок от генератора
+ * хранить количество заброненых и занятых
+ * к перечеслению привязать стоимость
+ */
