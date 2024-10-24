@@ -1,34 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\hostel\\Hostel\\",
+  "WorkspaceRootPath": "C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\laba52\\Hostel\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5F4423AE-0E17-44F8-B31A-FB5C7E3BB557}|Hostel\\Hostel.csproj|C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\hostel\\Hostel\\hostel\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F4423AE-0E17-44F8-B31A-FB5C7E3BB557}|Hostel\\Hostel.csproj|solutionrelative:hostel\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F4423AE-0E17-44F8-B31A-FB5C7E3BB557}|Hostel\\Hostel.csproj|C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\hostel\\Hostel\\hostel\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{5F4423AE-0E17-44F8-B31A-FB5C7E3BB557}|Hostel\\Hostel.csproj|solutionrelative:hostel\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F4423AE-0E17-44F8-B31A-FB5C7E3BB557}|Hostel\\Hostel.csproj|c:\\users\\aleks\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\hostel\\hostel\\hostel\\ihotel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F4423AE-0E17-44F8-B31A-FB5C7E3BB557}|Hostel\\Hostel.csproj|solutionrelative:hostel\\ihotel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F4423AE-0E17-44F8-B31A-FB5C7E3BB557}|Hostel\\Hostel.csproj|c:\\users\\aleks\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\hostel\\hostel\\hostel\\iroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F4423AE-0E17-44F8-B31A-FB5C7E3BB557}|Hostel\\Hostel.csproj|solutionrelative:hostel\\iroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F4423AE-0E17-44F8-B31A-FB5C7E3BB557}|Hostel\\Hostel.csproj|c:\\users\\aleks\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\hostel\\hostel\\hostel\\hotel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F4423AE-0E17-44F8-B31A-FB5C7E3BB557}|Hostel\\Hostel.csproj|solutionrelative:hostel\\hotel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F4423AE-0E17-44F8-B31A-FB5C7E3BB557}|Hostel\\Hostel.csproj|c:\\users\\aleks\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\hostel\\hostel\\hostel\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5F4423AE-0E17-44F8-B31A-FB5C7E3BB557}|Hostel\\Hostel.csproj|C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\laba52\\Hostel\\hostel\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5F4423AE-0E17-44F8-B31A-FB5C7E3BB557}|Hostel\\Hostel.csproj|solutionrelative:hostel\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5F4423AE-0E17-44F8-B31A-FB5C7E3BB557}|Hostel\\Hostel.csproj|c:\\users\\aleks\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\hostel\\hostel\\hostel\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F4423AE-0E17-44F8-B31A-FB5C7E3BB557}|Hostel\\Hostel.csproj|solutionrelative:hostel\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5F4423AE-0E17-44F8-B31A-FB5C7E3BB557}|Hostel\\Hostel.csproj|c:\\users\\aleks\\onedrive\\\u0440\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\laba52\\hostel\\hostel\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F4423AE-0E17-44F8-B31A-FB5C7E3BB557}|Hostel\\Hostel.csproj|solutionrelative:hostel\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F4423AE-0E17-44F8-B31A-FB5C7E3BB557}|Hostel\\Hostel.csproj|C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\laba52\\Hostel\\hostel\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{5F4423AE-0E17-44F8-B31A-FB5C7E3BB557}|Hostel\\Hostel.csproj|solutionrelative:hostel\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F4423AE-0E17-44F8-B31A-FB5C7E3BB557}|Hostel\\Hostel.csproj|C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\laba52\\Hostel\\hostel\\iroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5F4423AE-0E17-44F8-B31A-FB5C7E3BB557}|Hostel\\Hostel.csproj|solutionrelative:hostel\\iroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,94 +26,53 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "Room.cs",
-              "DocumentMoniker": "C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\hostel\\Hostel\\Hostel\\Room.cs",
+              "DocumentMoniker": "C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\laba52\\Hostel\\Hostel\\Room.cs",
               "RelativeDocumentMoniker": "Hostel\\Room.cs",
-              "ToolTip": "C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\hostel\\Hostel\\Hostel\\Room.cs",
+              "ToolTip": "C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\laba52\\Hostel\\Hostel\\Room.cs",
               "RelativeToolTip": "Hostel\\Room.cs",
-              "ViewState": "AQIAADkAAAAAAAAAAAAAAEkAAAAAAAAA",
+              "ViewState": "AQIAAH4AAAAAAAAAAAAUwIsAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-07T20:46:42.064Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Hotel.cs",
-              "DocumentMoniker": "C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\hostel\\Hostel\\Hostel\\Hotel.cs",
-              "RelativeDocumentMoniker": "Hostel\\Hotel.cs",
-              "ToolTip": "C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\hostel\\Hostel\\Hostel\\Hotel.cs",
-              "RelativeToolTip": "Hostel\\Hotel.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAD8AAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T20:45:58.815Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
               "Title": "IRoom.cs",
-              "DocumentMoniker": "C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\hostel\\Hostel\\Hostel\\IRoom.cs",
+              "DocumentMoniker": "C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\laba52\\Hostel\\Hostel\\IRoom.cs",
               "RelativeDocumentMoniker": "Hostel\\IRoom.cs",
-              "ToolTip": "C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\hostel\\Hostel\\Hostel\\IRoom.cs",
+              "ToolTip": "C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\laba52\\Hostel\\Hostel\\IRoom.cs",
               "RelativeToolTip": "Hostel\\IRoom.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAXAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T20:39:15.901Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-07T20:39:15.901Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "IHotel.cs",
-              "DocumentMoniker": "C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\hostel\\Hostel\\Hostel\\IHotel.cs",
-              "RelativeDocumentMoniker": "Hostel\\IHotel.cs",
-              "ToolTip": "C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\hostel\\Hostel\\Hostel\\IHotel.cs",
-              "RelativeToolTip": "Hostel\\IHotel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T20:38:50.603Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\hostel\\Hostel\\Hostel\\Class1.cs",
-              "RelativeDocumentMoniker": "Hostel\\Class1.cs",
-              "ToolTip": "C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\hostel\\Hostel\\Hostel\\Class1.cs",
-              "RelativeToolTip": "Hostel\\Class1.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAQAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T20:34:11.183Z",
-              "EditorCaption": ""
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\laba52\\Hostel\\Hostel\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Hostel\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\laba52\\Hostel\\Hostel\\MainWindow.xaml",
+              "RelativeToolTip": "Hostel\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-07T20:30:13.152Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\hostel\\Hostel\\Hostel\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "Hostel\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\hostel\\Hostel\\Hostel\\MainWindow.xaml",
-              "RelativeToolTip": "Hostel\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-07T20:30:13.152Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\hostel\\Hostel\\Hostel\\MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\laba52\\Hostel\\Hostel\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Hostel\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\hostel\\Hostel\\Hostel\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\aleks\\OneDrive\\\u0420\u0430\u0431\u043E\u0447\u0438\u0439 \u0441\u0442\u043E\u043B\\laba52\\Hostel\\Hostel\\MainWindow.xaml.cs",
               "RelativeToolTip": "Hostel\\MainWindow.xaml.cs",
-              "ViewState": "AQIAACAAAAAAAAAAAAAuwBwAAAAjAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-07T20:30:11.309Z",
               "EditorCaption": ""

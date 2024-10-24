@@ -8,12 +8,7 @@ namespace Hostel
 {
     public interface IRoom
     {
-        int Number { get; }
-        RoomType Type { get; }
-        double Price { get; }
-        bool IsOccupied { get; }
-        void CheckIn();
-        void CheckOut();
+    
     }
 
     

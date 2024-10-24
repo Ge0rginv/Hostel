@@ -8,8 +8,6 @@ namespace Hostel
 {
     public interface IHotel
     {
-        bool BookRoom(RoomType type);
-        void CheckOut(int roomNumber);
-        void DisplayRoomStatus();
+     
     }
 }
