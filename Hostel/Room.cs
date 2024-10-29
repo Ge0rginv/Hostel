@@ -19,19 +19,21 @@ namespace Hostel
 
     public abstract class Room : IRoom
     {
-        public int Number { get; }
+        public int RoomNumber { get; set; }
         public RoomType Type { get; }
         public int People_cnt { get; }
-        public double Price { get; }
+        public double PricePerDay { get; set; }
         public bool IsOccupied { get; private set; }
+        public List<Booking> Bookings { get; set; }
 
         protected Room(int number, RoomType type, int people_cnt, double price)
         {
-            Number = number;
+            RoomNumber = number;
             Type = type;
             People_cnt = people_cnt;
-            Price = price;
+            PricePerDay = price;
             IsOccupied = false;
+            Bookings = new List<Booking>();
         }
 
         //public virtual void CheckIn()
@@ -45,6 +47,43 @@ namespace Hostel
         //}
         public void CheckIn() => IsOccupied = true;
         public void CheckOut() => IsOccupied = false;
+    }
+    public class Booking
+    {
+        public int BookingId { get; set; }
+        public Room Room { get; set; }
+        public DateTime CheckInDate { get; set; }
+        public DateTime CheckOutDate { get; set; }
+        public double TotalCost { get; set; }
+
+        public Booking(Room room, DateTime checkInDate, DateTime checkOutDate)
+        {
+            Room = room;
+            CheckInDate = checkInDate;
+            CheckOutDate = checkOutDate;
+            TotalCost = CalculateTotalCost();
+        }
+
+        private double CalculateTotalCost()
+        {
+            int days = (CheckOutDate - CheckInDate).Days;
+            return days * Room.PricePerDay;
+        }
+    }
+
+    public class Customer
+    {
+        public int CustomerId { get; set; }
+        public string Name { get; set; }
+        public string PassportNumber { get; set; }
+        public List<Booking> Bookings { get; set; }
+
+        public Customer(string name, string passportNumber)
+        {
+            Name = name;
+            PassportNumber = passportNumber;
+            Bookings = new List<Booking>();
+        }
     }
 
     // Concrete Room classes

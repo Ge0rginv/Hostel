@@ -8,7 +8,7 @@ namespace Hostel
 {
     public interface IHotel
     {
-        bool BookRoom(RoomType type);
+        bool BookRoom(Customer customer, RoomType roomType, DateTime checkInDate, DateTime checkOutDate);
         void CheckOut(int roomNumber);
         void DisplayRoomStatus();
     }

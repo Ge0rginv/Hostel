@@ -9,46 +9,71 @@ namespace Hostel
     // Hotel class
     public class Hotel : IHotel
     {
-        private readonly List<IRoom> rooms;
-
+        private readonly List<Room> Rooms;
+        public List<Customer> Customers { get; set; }
         public Hotel(int totalRooms)
         {
-            rooms = new List<IRoom>();
+            Rooms = new List<Room>();
+            Customers = new List<Customer>();
             InitializeRooms(totalRooms);
         }
-
+        // Поиск доступных номеров по типу
+        public Room FindAvailableRoom(RoomType type, DateTime checkInDate, DateTime checkOutDate)
+        {
+            foreach (var room in Rooms)
+            {
+                if (room.Type == type && IsRoomAvailable(room, checkInDate, checkOutDate))
+                {
+                    return room;
+                }
+            }
+            return null;
+        }
+        // Проверка доступности номера
+        private bool IsRoomAvailable(Room room, DateTime checkInDate, DateTime checkOutDate)
+        {
+            foreach (var booking in room.Bookings)
+            {
+                if (!(checkOutDate <= booking.CheckInDate || checkInDate >= booking.CheckOutDate))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
         private void InitializeRooms(int totalRooms)
         {
             for (int i = 1; i <= totalRooms; i++)
             {
-                if (i <= 10) rooms.Add(new Suite(i, 1));
-                else if (i <= 15) rooms.Add(new HalfSuite(i, 1));
-                else if (i <= 20) rooms.Add(new DoubleRoom(i, 2));
-                else if (i <= 25) rooms.Add(new DoubleWithSofa(i, 2));
-                else rooms.Add(new SingleRoom(i, 1));
+                if (i <= 10) Rooms.Add(new Suite(i, 1));
+                else if (i <= 15) Rooms.Add(new HalfSuite(i, 1));
+                else if (i <= 20) Rooms.Add(new DoubleRoom(i, 2));
+                else if (i <= 25) Rooms.Add(new DoubleWithSofa(i, 2));
+                else Rooms.Add(new SingleRoom(i, 1));
             }
         }
 
-        public bool BookRoom(RoomType type)
+        // Бронирование номера
+        public bool BookRoom(Customer customer, RoomType roomType, DateTime checkInDate, DateTime checkOutDate)
         {
-            var room = rooms.FirstOrDefault(r => r.Type == type && !r.IsOccupied);
+            var room = FindAvailableRoom(roomType, checkInDate, checkOutDate);
             if (room != null)
             {
-                //room.CheckIn();
-                Console.WriteLine($"Room {room.Number} of type {room.Type} booked.");
+                var booking = new Booking(room, checkInDate, checkOutDate);
+                room.Bookings.Add(booking);
+                customer.Bookings.Add(booking);
                 return true;
             }
-            Console.WriteLine($"No available rooms of type {type}.");
             return false;
         }
 
         public void CheckOut(int roomNumber)
         {
-            var room = rooms.FirstOrDefault(r => r.Number == roomNumber);
+            var room = Rooms.FirstOrDefault(r => r.RoomNumber == roomNumber);
             if (room != null && room.IsOccupied)
             {
                 //room.CheckOut();
-                Console.WriteLine($"Room {room.Number} checked out.");
+                Console.WriteLine($"Room {room.RoomNumber} checked out.");
             }
             else
             {
@@ -58,10 +83,10 @@ namespace Hostel
 
         public void DisplayRoomStatus()
         {
-            foreach (var room in rooms)
+            foreach (var room in Rooms)
             {
                 // исправить вывод данных
-                Console.WriteLine($"Room {room.Number}: Type = {room.Type}, Price = {room.Price}, Occupied = {room.IsOccupied}");
+                Console.WriteLine($"Room {room.RoomNumber}: Type = {room.Type}, Price = {room.PricePerDay}, Occupied = {room.IsOccupied}");
             }
         }
     }
@@ -72,3 +97,21 @@ namespace Hostel
  * хранить количество заброненых и занятых
  * к перечеслению привязать стоимость
  */
+
+
+
+
+/*
+ public bool BookRoom(RoomType type)
+ {
+     var room = Rooms.FirstOrDefault(r => r.Type == type && !r.IsOccupied);
+     if (room != null)
+     {
+         //room.CheckIn();
+         Console.WriteLine($"Room {room.Number} of type {room.Type} booked.");
+         return true;
+     }
+     Console.WriteLine($"No available rooms of type {type}.");
+     return false;
+ }
+*/
