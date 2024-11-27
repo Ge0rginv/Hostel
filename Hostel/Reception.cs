@@ -8,12 +8,14 @@ namespace Hostel
 {
     internal class Reception
     {
-        public int TotalRooms { get; }
+        public int[] CountRooms { get; }
+        public double[] CostRooms { get; }
         public Hotel hostel { get; }
-        Reception(int totalRooms) 
+        Reception(int[] Counts, double[] Costs) 
         {
-            TotalRooms = totalRooms;
-            hostel = new Hotel(TotalRooms);
+            CountRooms = Counts;
+            CostRooms = Costs;
+            hostel = new Hotel(Counts, Costs);
         }
         
     }
