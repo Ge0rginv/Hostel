@@ -21,7 +21,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Main Screen (with buttons) -->
+            <!-- Main Screen -->
             <StackPanel x:Name="MainScreen" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Button x:Name="ChangeDataButton" Content="Изменить данные" FontSize="18" Width="200" Height="40" 
                         Background="#4CAF50" Foreground="White" Margin="0,20,0,10" Click="ChangeDataButton_Click"/>
@@ -29,33 +29,47 @@
                         Background="#2196F3" Foreground="White" Click="StartButton_Click"/>
             </StackPanel>
 
-            <!-- Data Entry Section (hidden initially) -->
-            <StackPanel x:Name="DataEntrySection" Visibility="Collapsed">
-                <TextBlock Text="Search Filters" FontSize="20" FontWeight="Bold" Foreground="#4CAF50" Margin="0,0,0,10"/>
-
-                <TextBlock Text="Room Type" FontWeight="SemiBold" Margin="0,10,0,5"/>
-                <ComboBox x:Name="RoomTypeComboBox" Height="35" Margin="0,0,0,10">
-                    <ComboBoxItem Content="Single"/>
-                    <ComboBoxItem Content="Double"/>
-                    <ComboBoxItem Content="Suite"/>
-                </ComboBox>
-
-                <TextBlock Text="Check-In Date" FontWeight="SemiBold" Margin="0,10,0,5"/>
-                <DatePicker x:Name="CheckInDatePicker" Height="35" Margin="0,0,0,10"/>
-
-                <TextBlock Text="Check-Out Date" FontWeight="SemiBold" Margin="0,10,0,5"/>
-                <DatePicker x:Name="CheckOutDatePicker" Height="35" Margin="0,0,0,10"/>
-
-                <Button Content="Search Rooms" Background="#4CAF50" Foreground="White" 
-                        FontWeight="Bold" Height="40" Margin="0,20,0,0"/>
+            <!-- Data Entry Section -->
+            <StackPanel x:Name="DataEntrySection" Visibility="Collapsed" >
+                <TextBlock Text="Set Booking Parameters" FontSize="20" FontWeight="Bold" Foreground="#4CAF50" Margin="0,0,0,10"/>
+                <!-- Number of Days -->
+                <TextBlock Text="Number of Days (12-30)" FontWeight="SemiBold" Margin="0,10,0,5"/>
+                <Slider x:Name="DaysSlider" Minimum="12" Maximum="30" Value="12" TickFrequency="1" IsSnapToTickEnabled="True" 
+                        Margin="0,0,0,10"/>
+                <TextBlock Text="{Binding ElementName=DaysSlider, Path=Value, StringFormat='Selected: {0} Days'}" 
+                           Margin="0,0,0,10" FontStyle="Italic"/>
+                <!-- Time Between Requests -->
+                <TextBlock Text="Time Between Requests (1-5 Hours)" FontWeight="SemiBold" Margin="0,10,0,5"/>
+                <Slider x:Name="TimeSlider" Minimum="1" Maximum="5" Value="1" TickFrequency="1" IsSnapToTickEnabled="True" 
+                        Margin="0,0,0,10"/>
+                <TextBlock Text="{Binding ElementName=TimeSlider, Path=Value, StringFormat='Selected: {0} Hours'}" 
+                           Margin="0,0,0,10" FontStyle="Italic"/>
+                <!-- Room Details -->
+                <TextBlock Text="Room Details" FontWeight="SemiBold" Margin="0,20,0,10"/>
+                <DataGrid x:Name="RoomDataGrid" AutoGenerateColumns="False" Height="200" Margin="0,10,0,10" CanUserAddRows="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Room Type" Binding="{Binding RoomType}" Width="*"/>
+                        <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="*"/>
+                        <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+                    <Button Content="Назад" Background="#FF5722" Foreground="White" 
+                            FontWeight="Bold" Height="40" Width="150" Margin="0,0,10,0" Click="BackButton_Click"/>
+                    <Button Content="Начать генерацию" Background="#4CAF50" Foreground="White" 
+                            FontWeight="Bold" Height="40" Width="143" Click="GenerateButton_Click"/>
+                </StackPanel>
             </StackPanel>
 
-            <!-- Results Section (hidden initially) -->
+            <!-- Results Section -->
             <StackPanel x:Name="ResultsSection" Visibility="Collapsed">
                 <TextBlock Text="Available Rooms" FontSize="20" FontWeight="Bold" Foreground="#4CAF50" Margin="0,0,0,10"/>
-
                 <TextBox x:Name="ResultsTextBox" IsReadOnly="True" Height="150" Margin="0,10,0,10" 
                          Background="#f0f0f0" VerticalScrollBarVisibility="Auto"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+                    <Button Content="Назад" Background="#FF5722" Foreground="White" 
+                            FontWeight="Bold" Height="40" Width="150" Margin="0,0,10,0" Click="BackButton_Click"/>
+                </StackPanel>
             </StackPanel>
         </Grid>
     </Grid>
