@@ -33,54 +33,6 @@ namespace Hostel
             Occupied = false;
         }
         public abstract double Cost();
-        //public virtual void CheckIn()
-        //{
-        //    IsOccupied = true;
-        //}
-
-        //public virtual void CheckOut()
-        //{
-        //    IsOccupied = false;
-        //}
-        //public void CheckIn() => IsOccupied = true;
-        //public void CheckOut() => IsOccupied = false;
-    }
-    public class Booking
-    {
-        public int BookingId { get; set; }
-        public Room Room { get; set; }
-        public DateTime CheckInDate { get; set; }
-        public DateTime CheckOutDate { get; set; }
-        public double TotalCost { get; set; }
-
-        public Booking(Room room, DateTime checkInDate, DateTime checkOutDate)
-        {
-            Room = room;
-            CheckInDate = checkInDate;
-            CheckOutDate = checkOutDate;
-            TotalCost = CalculateTotalCost();
-        }
-
-        private double CalculateTotalCost()
-        {
-            int days = (CheckOutDate - CheckInDate).Days;
-            return days * Room.Price;
-        }
-    }
-
-    public class Customer
-    {
-        public int CustomerId { get; set; }
-        public string Name { get; set; }
-        public string PassportNumber { get; set; }
-        public List<Booking> Bookings { get; set; }
-
-        public Customer(string name, string passportNumber)
-        {
-            Name = name;
-            PassportNumber = passportNumber;
-            Bookings = new List<Booking>();
-        }
     }
 
     // Concrete Room classes
@@ -180,3 +132,60 @@ namespace Hostel
         //public DoubleWithSofa(int number, int people_cnt) : base(number, RoomType.DoubleWithSofa, people_cnt, 110) { }
     }
 }
+
+
+
+
+/*
+        //public virtual void CheckIn()
+        //{
+        //    IsOccupied = true;
+        //}
+
+        //public virtual void CheckOut()
+        //{
+        //    IsOccupied = false;
+        //}
+        //public void CheckIn() => IsOccupied = true;
+        //public void CheckOut() => IsOccupied = false;
+
+
+
+    //public class Booking
+    //{
+    //    public int BookingId { get; set; }
+    //    public Room Room { get; set; }
+    //    public DateTime CheckInDate { get; set; }
+    //    public DateTime CheckOutDate { get; set; }
+    //    public double TotalCost { get; set; }
+
+    //    public Booking(Room room, DateTime checkInDate, DateTime checkOutDate)
+    //    {
+    //        Room = room;
+    //        CheckInDate = checkInDate;
+    //        CheckOutDate = checkOutDate;
+    //        TotalCost = CalculateTotalCost();
+    //    }
+
+    //    private double CalculateTotalCost()
+    //    {
+    //        int days = (CheckOutDate - CheckInDate).Days;
+    //        return days * Room.Price;
+    //    }
+    //}
+
+    //public class Customer
+    //{
+    //    public int CustomerId { get; set; }
+    //    public string Name { get; set; }
+    //    public string PassportNumber { get; set; }
+    //    public List<Booking> Bookings { get; set; }
+
+    //    public Customer(string name, string passportNumber)
+    //    {
+    //        Name = name;
+    //        PassportNumber = passportNumber;
+    //        Bookings = new List<Booking>();
+    //    }
+    //}
+*/

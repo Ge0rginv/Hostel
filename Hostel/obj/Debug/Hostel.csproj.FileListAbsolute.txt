@@ -20,7 +20,6 @@ C:\Users\anna2\OneDrive\Рабочий стол\Новая папка (2)\Hostel
 C:\Users\anna2\OneDrive\Рабочий стол\Новая папка (2)\Hostel\Hostel\obj\Debug\MainWindow.g.cs
 C:\Users\anna2\OneDrive\Рабочий стол\Новая папка (2)\Hostel\Hostel\obj\Debug\App.g.cs
 C:\Users\anna2\OneDrive\Рабочий стол\Новая папка (2)\Hostel\Hostel\obj\Debug\Hostel_MarkupCompile.cache
-C:\Users\anna2\OneDrive\Рабочий стол\Новая папка (2)\Hostel\Hostel\obj\Debug\Hostel_MarkupCompile.lref
 C:\Users\anna2\OneDrive\Рабочий стол\Новая папка (2)\Hostel\Hostel\obj\Debug\MainWindow.baml
 C:\Users\anna2\OneDrive\Рабочий стол\Новая папка (2)\Hostel\Hostel\obj\Debug\Hostel.g.resources
 C:\Users\anna2\OneDrive\Рабочий стол\Новая папка (2)\Hostel\Hostel\obj\Debug\Hostel.Properties.Resources.resources
