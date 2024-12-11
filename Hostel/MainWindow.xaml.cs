@@ -28,8 +28,8 @@ namespace HotelBooking
         // Обработчик для кнопки "Изменить данные"
         private void ChangeDataButton_Click(object sender, RoutedEventArgs e)
         {
-            ShowSection("DataEntry");
             ReadInf = true;
+            ShowSection("DataEntry");
             // в массивы загрузить информацию из формы : 
             /*
             public int M { get; set; } // количество дней моделирования
@@ -65,6 +65,7 @@ namespace HotelBooking
             // надо ли это сообщение? если нет, то убирай
             MessageBox.Show("Генерация данных началась! Проверьте результаты позже.", "Генерация", MessageBoxButton.OK, MessageBoxImage.Information);
             ShowSection("Results");
+            if (!ReadInf) modeling = new Modeling();
             ResultsTextBox.Text = "";
             modeling.Start();
             string res = modeling.GetInf();
@@ -99,8 +100,8 @@ namespace HotelBooking
         public double[] CostRooms { get; set; } // стоимость каждого типа номеров
         public RequestGenerator requestGenerator { get; set; } // класс для генерации случайных данных
         public List<List<double>> persent_busy_typeofrooms { get; set; } // лист с процентами занятости каждого типа номера, нужен для получения итоговых результатов моделирования
-        public int[] cnt_buzy {  get; set; } // количество занятых номеров каждого типа по индексам
-        public int goodRequest {  get; set; } // количество успешно обработанных заявок
+        public int[] cnt_buzy { get; set; } // количество занятых номеров каждого типа по индексам
+        public int goodRequest { get; set; } // количество успешно обработанных заявок
         public int bedRequest { get; set; } // количество необработанных заявок
         public Hotel hostel { get; set; } // сам класс хостела
         public int SumBuzyRooms { get; set; } // суммарное количество занятых номеров
@@ -111,9 +112,9 @@ namespace HotelBooking
             time = 0;
             requestGenerator = new RequestGenerator();
             M = requestGenerator.RandomNumberCreatorInSection(20, 30);
-            time_step= requestGenerator.RandomNumberCreatorInSection(1, 5);
+            time_step = requestGenerator.RandomNumberCreatorInSection(1, 5);
             persent_busy_typeofrooms = new List<List<double>>();
-            for (int i = 0; i < 5; ++i) 
+            for (int i = 0; i < 5; ++i)
             {
                 persent_busy_typeofrooms.Add(new List<double>());
             }
@@ -123,7 +124,7 @@ namespace HotelBooking
                 cnt_buzy[i] = 0;
             }
             CountRooms = new int[5];
-            for (int i = 0; i < 5; ++i) 
+            for (int i = 0; i < 5; ++i)
             {
                 CountRooms[i] = requestGenerator.RandomNumberCreatorInSection(1, 30);
             }
@@ -154,16 +155,25 @@ namespace HotelBooking
 
             //reception = new Reception(CountRooms, CostRooms);
             hostel = new Hotel(CountRooms, CostRooms);
-            while(time<M*24)
+            while (time < M * 24)
             {
                 if (time % time_step == 0) // генерация заявки
                 {
                     string type = requestGenerator.room_type_random();
                     int checkInDate = requestGenerator.day(time / 24, M);
-                    int checkOutDate = requestGenerator.day(checkInDate,  M);
+                    int checkOutDate = requestGenerator.day(checkInDate, M);
                     int res = hostel.BookRoom(type, checkInDate, checkOutDate);
+                    Console.WriteLine($"{time}  {type} {checkInDate} {checkOutDate}");
                     if (res == -1) ++bedRequest;
                     else ++goodRequest;
+                }
+
+                List<int> del = new List<int>();
+                for (int i = 0; i < hostel.occupied.Count; i++)
+                {
+                    if (hostel.occupied.Values[i] == time / 24)
+                        del.Add(hostel.occupied.Keys[i]);
+
                 }
 
                 // проверка какой номер занят
@@ -172,7 +182,7 @@ namespace HotelBooking
                 for (int i = 0; i < 5; ++i)
                 {
                     cnt_buzy[i] = hostel.buzyRooms(important[i], time);
-                    SumBuzyRooms+= cnt_buzy[i];
+                    SumBuzyRooms += cnt_buzy[i];
                     persent_busy_typeofrooms[i].Add(cnt_buzy[i] * 100 / CountRooms[i]);
                 }
 
@@ -180,7 +190,7 @@ namespace HotelBooking
                 // счет количество занятых номеров
                 MidSumBuzyRooms.Add(SumBuzyRooms * 100 / sum);
 
-                
+
 
                 //ResultsTextBox.Text = "Здесь будет отображена информация о доступных номерах.";
                 // день или время (день + время 24ч или время в часах с начала моделирования
@@ -199,6 +209,14 @@ namespace HotelBooking
             // процент загруженности гостиницы : (занятые номера * 100) / (количество номеров)
             string resalt = ""; // строка с итоговой информацией полученной в ходе моделирования
             double x;
+            string[] names ={
+                "Single/одноместный",
+                "Double/двухместный",
+                "Suite/люкс",
+                "HalfSuite/полулюкс",
+                "DoubleWithSofa/двухместный с диваном"
+            };
+
 
             //    M { get; set; } // количество дней моделирования
             //    time_step { get; set; } // промежуток появления заявок
@@ -209,14 +227,14 @@ namespace HotelBooking
             resalt += "Количество дней моделирования : " + M.ToString() + "\n";
             resalt += "Промежуток появления заявок : " + time_step.ToString() + "\n";
             resalt += "Количество номеров каждого типа : " + "\n";
-            for (int i = 0; i < 5; ++i) 
+            for (int i = 0; i < 5; ++i)
             {
-                resalt += " * " + CountRooms[i].ToString() + '\n';
+                resalt += " * " + names[i] + ' ' + CountRooms[i].ToString() + '\n';
             }
             resalt += "Стоимость каждого типа номеров : " + "\n";
             for (int i = 0; i < 5; ++i)
             {
-                resalt += " * " + Math.Round(CostRooms[i] * 100 / 100).ToString() + '\n';
+                resalt += " * " + names[i] + ' ' + Math.Round(CostRooms[i] * 100 / 100).ToString() + '\n';
             }
 
 
@@ -227,7 +245,7 @@ namespace HotelBooking
 
             resalt += "Статистика выполненных заявок: \n";
             if (goodRequest == 0) x = 100;
-            else 
+            else
                 x = (goodRequest) * 100 / (goodRequest + bedRequest);
             resalt += x.ToString() + "% \n";
 
@@ -266,7 +284,7 @@ namespace HotelBooking
             for (int i = 0; i < persent_busy_typeofrooms[4].Count; ++i)
                 x += persent_busy_typeofrooms[4][i];
             x /= persent_busy_typeofrooms[4].Count;
-            resalt += Math.Round(x*100/100).ToString() + " %\n";
+            resalt += Math.Round(x * 100 / 100).ToString() + " %\n";
 
             resalt += "Процент загруженности гостиницы: \n";
             x = 0;
@@ -304,33 +322,10 @@ namespace HotelBooking
             return num;
         }
         public double RandomNumberCreatorDouble() // генерация случайного числа вещественного типа
-        { 
-            return _random.NextDouble(); 
+        {
+            return _random.NextDouble();
         }
-        
+
     }
 }
 
-
-
-/*
-    //public void GenerateRequests(Hotel hotel, int daysToSimulate)
-        //{
-
-        //    DateTime currentTime = DateTime.Now;
-        //    for (int i = 0; i < daysToSimulate; i++)
-        //    {
-        //        int hoursUntilNextRequest = _random.Next(1, 5); // Интервал между заявками
-        //        currentTime = currentTime.AddHours(hoursUntilNextRequest);
-
-        //        RoomType randomRoomType = (RoomType)_random.Next(0, 5);
-        //        DateTime checkInDate = currentTime.AddDays(_random.Next(1, 3));
-        //        DateTime checkOutDate = checkInDate.AddDays(_random.Next(1, 10));
-
-        //        // Обработка брони или заселения в зависимости от типа заявки
-        //    }
-        //}
- 
- 
-
-*/

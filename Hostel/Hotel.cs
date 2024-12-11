@@ -23,7 +23,7 @@ namespace Hostel
         public int[] Max_Num; // максимальный номер комнаты объединенные в блоки по типу комнаты
         public SortedList<int, int> occupied; // лист занятых или забронированных номеров
         public int[] Count_occupied; // количество занятых комнат объединенные в блоки по типу комнаты
-        
+
         public Hotel(int[] k, double[] cost)
         {
             int sum = 0;
@@ -38,14 +38,14 @@ namespace Hostel
             }
             for (int i = 1; i <= k[0]; i++)
             {
-                singleRooms[i-1] = new SingleRoom(i + sum, cost[0], new CountRoomPrice ());
+                singleRooms[i - 1] = new SingleRoom(i + sum, cost[0], new CountRoomPrice());
             }
             sum += k[0];
             Max_Num[0] = sum;
             doubleRooms = new DoubleRoom[k[1]];
             for (int i = 1; i <= k[1]; i++)
             {
-                doubleRooms[i-1] = new DoubleRoom(i + sum, cost[1], new CountRoomPrice());
+                doubleRooms[i - 1] = new DoubleRoom(i + sum, cost[1], new CountRoomPrice());
             }
             sum += k[1];
             Max_Num[1] = sum;
@@ -59,14 +59,14 @@ namespace Hostel
             halfSuiteRooms = new HalfSuite[k[3]];
             for (int i = 1; i <= k[3]; i++)
             {
-                halfSuiteRooms[i-1] = new HalfSuite(i + sum, cost[3], new CountRoomPrice());
+                halfSuiteRooms[i - 1] = new HalfSuite(i + sum, cost[3], new CountRoomPrice());
             }
             sum += k[3];
             Max_Num[3] = sum;
             doubleWithSofaRooms = new DoubleWithSofa[k[4]];
             for (int i = 1; i <= k[4]; i++)
             {
-                doubleWithSofaRooms[i-1] = new DoubleWithSofa(i + sum, cost[4], new CountRoomPrice());
+                doubleWithSofaRooms[i - 1] = new DoubleWithSofa(i + sum, cost[4], new CountRoomPrice());
             }
             sum += k[4];
             Max_Num[4] = sum;
@@ -92,13 +92,13 @@ namespace Hostel
          { "HalfSuite", doubleRooms },
          { "Suite", suiteRooms },
          {"Double", halfSuiteRooms },
-         {"DoubleWithSofa", doubleWithSofaRooms } 
+         {"DoubleWithSofa", doubleWithSofaRooms }
      };
             RoomType roomType;
             if (RoomType.TryParse(type, out roomType))
             {
                 Room[] currentRoom;
-                while (important.TryGetValue(roomType.ToString(), out currentRoom)) 
+                while (important.TryGetValue(roomType.ToString(), out currentRoom))
                 {
                     for (int i = 0; i < currentRoom.Length; ++i)
                     {
@@ -197,7 +197,7 @@ namespace Hostel
         }
 
         // метод подсчета количества занятых комнат в данный момент времени
-        public int buzyRooms(string type, int time) 
+        public int buzyRooms(string type, int time)
         {
             int cnt = 0;
             if (type == "Single")
@@ -256,11 +256,11 @@ namespace Hostel
         {
             double cost = 0;
             int id = 0;
-            for (int i = 0; i < Max_Num.Length; ++i) 
+            for (int i = 0; i < Max_Num.Length; ++i)
             {
                 if (number <= Max_Num[i])
                 {
-                    id = i; 
+                    id = i;
                     break;
                 }
             }
@@ -269,89 +269,3 @@ namespace Hostel
     }
 
 }
-
-
-/*
- public bool BookRoom(RoomType type)
- {
-     var room = Rooms.FirstOrDefault(r => r.Type == type && !r.IsOccupied);
-     if (room != null)
-     {
-         //room.CheckIn();
-         Console.WriteLine($"Room {room.Number} of type {room.Type} booked.");
-         return true;
-     }
-     Console.WriteLine($"No available rooms of type {type}.");
-     return false;
- }
-*/
-
-/*
-public double CheckOut(int roomNumber)
-{
-            var room = Rooms.FirstOrDefault(r => r.RoomNumber == roomNumber);
-            if (room != null && room.IsOccupied)
-            {
-                //room.CheckOut();
-                Console.WriteLine($"Room {room.RoomNumber} checked out.");
-            }
-            else
-            {
-                Console.WriteLine($"Room {roomNumber} is not occupied or does not exist.");
-            }
-}
-
-
-
-        //public Hotel(int totalRooms)
-        //{
-        //    Rooms = new List<Room>();
-        //    Customers = new List<Customer>();
-        //    InitializeRooms(totalRooms);
-        //}
-
-        //private void InitializeRooms(int totalRooms)
-        //{
-        //    for (int i = 1; i <= totalRooms; i++)
-        //    {
-        //        if (i <= 10) Rooms.Add(new Suite(i, 1));
-        //        else if (i <= 15) Rooms.Add(new HalfSuite(i, 1));
-        //        else if (i <= 20) Rooms.Add(new DoubleRoom(i, 2));
-        //        else if (i <= 25) Rooms.Add(new DoubleWithSofa(i, 2));
-        //        else Rooms.Add(new SingleRoom(i, 1));
-        //    }
-        //}
-
-
-
-
-
-
-
-    internal static class Program
-    {
-        // класс пары для храниния двух целых значений
-        // скорее всего не потребуется, но на всякий случай есть
-        public struct pair : IComparable<pair> 
-        {
-            public int f;
-            public int s;
-            public pair(int f, int s)
-            {
-                this.f = f;
-                this.s = s;
-            }
-            public int CompareTo(pair point)
-            {
-                if (this.f == point.f)
-                    return s.CompareTo(point.s);
-                return f.CompareTo(point.f);
-            }
-            public override string ToString()
-            {
-                return string.Format($"{f} {s}");
-                //return string.Format($"{f:f6} {s}");
-            }
-        }
-    }
-*/

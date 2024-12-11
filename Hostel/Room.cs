@@ -50,7 +50,6 @@ namespace Hostel
             double cost = _ICost.Cost(Price, Days);
             return cost;
         }
-        //public SingleRoom(int number, int people_cnt)  { }
     }
 
     public class DoubleRoom : Room
@@ -75,7 +74,6 @@ namespace Hostel
             }
             return cost;
         }
-        //public DoubleRoom(int number, int people_cnt) : base(number, RoomType.Double, people_cnt, 100) { }
     }
 
     public class Suite : Room
@@ -90,7 +88,6 @@ namespace Hostel
             double cost = _ICost.Cost(Price, Days);
             return cost;
         }
-        //public Suite(int number, int people_cnt) : base(number, RoomType.Suite, people_cnt, 120) { }
     }
 
     public class HalfSuite : Room
@@ -105,7 +102,6 @@ namespace Hostel
             double cost = _ICost.Cost(Price, Days);
             return cost;
         }
-        //public HalfSuite(int number, int people_cnt) : base(number, RoomType.HalfSuite, people_cnt, 90) { }
     }
 
     public class DoubleWithSofa : Room
@@ -131,7 +127,6 @@ namespace Hostel
             }
             return cost;
         }
-        //public DoubleWithSofa(int number, int people_cnt) : base(number, RoomType.DoubleWithSofa, people_cnt, 110) { }
     }
 
 }
