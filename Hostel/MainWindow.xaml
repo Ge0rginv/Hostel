@@ -17,12 +17,12 @@
         <!-- Main Content -->
         <Grid Grid.Row="1" Margin="10,20,10,10">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1137"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
             <!-- Main Screen -->
-            <StackPanel x:Name="MainScreen" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel x:Name="MainScreen" HorizontalAlignment="Center" VerticalAlignment="Center" Height="110" Width="200">
                 <Button x:Name="ChangeDataButton" Content="Изменить данные" FontSize="18" Width="200" Height="40" 
                         Background="#4CAF50" Foreground="White" Margin="0,20,0,10" Click="ChangeDataButton_Click"/>
                 <Button x:Name="StartButton" Content="Старт" FontSize="18" Width="200" Height="40" 
