@@ -9,34 +9,6 @@ using System.Runtime.InteropServices;
 namespace Hostel
 {
     // Hotel class
-    internal static class Program
-    {
-        // класс пары для храниния двух целых значений
-        // скорее всего не потребуется, но на всякий случай есть
-        public struct pair : IComparable<pair> 
-        {
-            public int f;
-            public int s;
-            public pair(int f, int s)
-            {
-                this.f = f;
-                this.s = s;
-            }
-            public int CompareTo(pair point)
-            {
-                if (this.f == point.f)
-                    return s.CompareTo(point.s);
-                return f.CompareTo(point.f);
-            }
-            public override string ToString()
-            {
-                return string.Format($"{f} {s}");
-                //return string.Format($"{f:f6} {s}");
-            }
-        }
-    }
-
-
     public class Hotel
     {
         //private readonly List<Room> Rooms;
@@ -66,35 +38,35 @@ namespace Hostel
             }
             for (int i = 1; i <= k[0]; i++)
             {
-                singleRooms[i-1] = new SingleRoom(i + sum, cost[0]);
+                singleRooms[i-1] = new SingleRoom(i + sum, cost[0], new CountRoomPrice ());
             }
             sum += k[0];
             Max_Num[0] = sum;
             doubleRooms = new DoubleRoom[k[1]];
             for (int i = 1; i <= k[1]; i++)
             {
-                doubleRooms[i-1] = new DoubleRoom(i + sum, cost[1]);
+                doubleRooms[i-1] = new DoubleRoom(i + sum, cost[1], new CountRoomPrice());
             }
             sum += k[1];
             Max_Num[1] = sum;
             suiteRooms = new Suite[k[2]];
             for (int i = 1; i <= k[2]; i++)
             {
-                suiteRooms[i - 1] = new Suite(i + sum, cost[2]);
+                suiteRooms[i - 1] = new Suite(i + sum, cost[2], new CountRoomPrice());
             }
             sum += k[2];
             Max_Num[2] = sum;
             halfSuiteRooms = new HalfSuite[k[3]];
             for (int i = 1; i <= k[3]; i++)
             {
-                halfSuiteRooms[i-1] = new HalfSuite(i + sum, cost[3]);
+                halfSuiteRooms[i-1] = new HalfSuite(i + sum, cost[3], new CountRoomPrice());
             }
             sum += k[3];
             Max_Num[3] = sum;
             doubleWithSofaRooms = new DoubleWithSofa[k[4]];
             for (int i = 1; i <= k[4]; i++)
             {
-                doubleWithSofaRooms[i-1] = new DoubleWithSofa(i + sum, cost[4]);
+                doubleWithSofaRooms[i-1] = new DoubleWithSofa(i + sum, cost[4], new CountRoomPrice());
             }
             sum += k[4];
             Max_Num[4] = sum;
@@ -114,100 +86,62 @@ namespace Hostel
         public int FindAvailableRoom(string type, int checkInDate, int checkOutDate)
         {
             // словарь который определяет важность каждой комнаты для последующего предложения улучшения условий
-            Dictionary<string, int> important = new Dictionary<string, int>();
-            important.Add("Single", 1);
-            important.Add("HalfSuite", 2);
-            important.Add("Suite", 3);
-            important.Add("Double", 4);
-            important.Add("DoubleWithSofa", 5);
-            int imp = important[type];
-            if (imp == 1)
+            Dictionary<string, Room[]> important = new Dictionary<string, Room[]>()
+     {
+         { "Single", singleRooms },
+         { "HalfSuite", doubleRooms },
+         { "Suite", suiteRooms },
+         {"Double", halfSuiteRooms },
+         {"DoubleWithSofa", doubleWithSofaRooms } 
+     };
+            RoomType roomType;
+            if (RoomType.TryParse(type, out roomType))
             {
-                for (int i = 0; i < singleRooms.Length; ++i)
+                Room[] currentRoom;
+                while (important.TryGetValue(roomType.ToString(), out currentRoom)) 
                 {
-                    if (singleRooms[i].Occupied)
+                    for (int i = 0; i < currentRoom.Length; ++i)
                     {
-                        singleRooms[i].Occupied = true;
-                        singleRooms[i].FirstDay = checkInDate;
-                        singleRooms[i].LastDay = checkOutDate;
-                        singleRooms[i].Days = checkOutDate - checkInDate;
-                        occupied.Add(singleRooms[i].Number, checkInDate);
-                        ++Count_occupied[imp - 1];
-                        return singleRooms[i].Number;
+                        if (!currentRoom[i].Occupied)
+                        {
+                            currentRoom[i].Occupied = true;
+                            currentRoom[i].FirstDay = checkInDate;
+                            currentRoom[i].LastDay = checkOutDate;
+                            currentRoom[i].Days = checkOutDate - checkInDate;
+                            occupied.Add(currentRoom[i].Number, checkInDate);
+                            switch (roomType)
+                            {
+                                case RoomType.Single:
+                                    {
+                                        ++Count_occupied[1 - 1]; break;
+                                    }
+                                case RoomType.Double:
+                                    {
+                                        ++Count_occupied[2 - 1]; break;
+                                    }
+                                case RoomType.Suite:
+                                    {
+                                        ++Count_occupied[3 - 1]; break;
+                                    }
+                                case RoomType.HalfSuite:
+                                    {
+                                        ++Count_occupied[4 - 1]; break;
+                                    }
+                                case RoomType.DoubleWithSofa:
+                                    {
+                                        ++Count_occupied[5 - 1]; break;
+                                    }
+                            }
+                            return currentRoom[i].Number;
+                        }
                     }
+                    ++roomType;
                 }
-                ++imp;
+                return -1;
             }
-            if (imp == 2)
-            {
-                for (int i = 0; i < halfSuiteRooms.Length; ++i)
-                {
-                    if (halfSuiteRooms[i].Occupied)
-                    {
-                        halfSuiteRooms[i].Occupied = true;
-                        halfSuiteRooms[i].FirstDay = checkInDate;
-                        halfSuiteRooms[i].LastDay = checkOutDate;
-                        halfSuiteRooms[i].Days = checkOutDate - checkInDate;
-                        occupied.Add(halfSuiteRooms[i].Number, checkInDate);
-                        ++Count_occupied[imp - 1];
-                        return halfSuiteRooms[i].Number;
-                    }
-                }
-                ++imp;
-            }
-            if (imp == 3)
-            {
-                for (int i = 0; i < suiteRooms.Length; ++i)
-                {
-                    if (suiteRooms[i].Occupied)
-                    {
-                        suiteRooms[i].Occupied = true;
-                        suiteRooms[i].FirstDay = checkInDate;
-                        suiteRooms[i].LastDay = checkOutDate;
-                        suiteRooms[i].Days = checkOutDate - checkInDate;
-                        occupied.Add(suiteRooms[i].Number, checkInDate);
-                        ++Count_occupied[imp - 1];
-                        return suiteRooms[i].Number;
-                    }
-                }
-                ++imp;
-            }
-            if (imp == 4)
-            {
-                for (int i = 0; i < doubleRooms.Length; ++i)
-                {
-                    if (doubleRooms[i].Occupied)
-                    {
-                        doubleRooms[i].Occupied = true;
-                        doubleRooms[i].FirstDay = checkInDate;
-                        doubleRooms[i].LastDay = checkOutDate;
-                        doubleRooms[i].Days = checkOutDate - checkInDate;
-                        occupied.Add(doubleRooms[i].Number, checkInDate);
-                        ++Count_occupied[imp - 1];
-                        return doubleRooms[i].Number;
-                    }
-                }
-                ++imp;
-            }
-            if (imp == 5)
-            {
-                for (int i = 0; i < doubleWithSofaRooms.Length; ++i)
-                {
-                    if (doubleWithSofaRooms[i].Occupied)
-                    {
-                        doubleWithSofaRooms[i].Occupied = true;
-                        doubleWithSofaRooms[i].FirstDay = checkInDate;
-                        doubleWithSofaRooms[i].LastDay = checkOutDate;
-                        doubleWithSofaRooms[i].Days = checkOutDate - checkInDate;
-                        occupied.Add(doubleWithSofaRooms[i].Number, checkInDate);
-                        ++Count_occupied[imp - 1];
-                        return doubleWithSofaRooms[i].Number;
-                    }
-                }
-                ++imp;
-            }
-            return -1;
+            throw new ArgumentException("Given room Type was not found or implemented!");
         }
+
 
 
         // выселение с подсчетом стоимости проживания
@@ -318,6 +252,20 @@ namespace Hostel
             }
             return cnt;
         }
+        public double Cost(int number)
+        {
+            double cost = 0;
+            int id = 0;
+            for (int i = 0; i < Max_Num.Length; ++i) 
+            {
+                if (number <= Max_Num[i])
+                {
+                    id = i; 
+                    break;
+                }
+            }
+            return cost;
+        }
     }
 
 }
@@ -362,18 +310,6 @@ public double CheckOut(int roomNumber)
         //    InitializeRooms(totalRooms);
         //}
 
-        // Проверка доступности номера
-        //private bool IsRoomAvailable(Room room, DateTime checkInDate, DateTime checkOutDate)
-        //{
-        //    foreach (var booking in room.Bookings)
-        //    {
-        //        if (!(checkOutDate <= booking.CheckInDate || checkInDate >= booking.CheckOutDate))
-        //        {
-        //            return false;
-        //        }
-        //    }
-        //    return true;
-        //}
         //private void InitializeRooms(int totalRooms)
         //{
         //    for (int i = 1; i <= totalRooms; i++)
@@ -389,12 +325,33 @@ public double CheckOut(int roomNumber)
 
 
 
-        //public void DisplayRoomStatus()
-        //{
-        //    foreach (var room in Rooms)
-        //    {
-        //        // исправить вывод данных
-        //        Console.WriteLine($"Room {room.RoomNumber}: Type = {room.Type}, Price = {room.PricePerDay}, Occupied = {room.IsOccupied}");
-        //    }
-        //}
+
+
+
+    internal static class Program
+    {
+        // класс пары для храниния двух целых значений
+        // скорее всего не потребуется, но на всякий случай есть
+        public struct pair : IComparable<pair> 
+        {
+            public int f;
+            public int s;
+            public pair(int f, int s)
+            {
+                this.f = f;
+                this.s = s;
+            }
+            public int CompareTo(pair point)
+            {
+                if (this.f == point.f)
+                    return s.CompareTo(point.s);
+                return f.CompareTo(point.f);
+            }
+            public override string ToString()
+            {
+                return string.Format($"{f} {s}");
+                //return string.Format($"{f:f6} {s}");
+            }
+        }
+    }
 */

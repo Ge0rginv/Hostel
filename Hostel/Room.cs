@@ -24,29 +24,30 @@ namespace Hostel
         public bool Occupied { get; set; } // buzy or not
         public int FirstDay { get; set; }  
         public int LastDay { get; set; }
+        public ICost _ICost {  get; set; }
 
-        protected Room(int num, double cost)
+        protected Room(int num, double cost, ICost iCost)
         {
             Number = num;
             Price = cost;
             Days = 0;
             Occupied = false;
+            _ICost = iCost;
         }
-        public abstract double Cost();
     }
 
     // Concrete Room classes
     public class SingleRoom : Room
     {
         // цена и название
-        public SingleRoom(int num, double cost) : base(num, cost)
+        public SingleRoom(int num, double cost, ICost icost) : base(num, cost, icost)
         {
             Type = RoomType.Single;
             Max_Count_People = 1;
         }
-        public override double Cost()
+        public double Cost()
         {
-            double cost = Days * Price;
+            double cost = _ICost.Cost(Price, Days);
             return cost;
         }
         //public SingleRoom(int number, int people_cnt)  { }
@@ -55,22 +56,22 @@ namespace Hostel
     public class DoubleRoom : Room
     {
         public int Real_People { get; set; } // real count of people
-        public DoubleRoom(int num, double cost) : base(num, cost)
+        public DoubleRoom(int num, double cost, ICost icost) : base(num, cost, icost)
         {
             Type = RoomType.Double;
             Max_Count_People = 2;
             Real_People = 0;
         }
-        public override double Cost()
+        public double Cost()
         {
             double cost = 0;
             if (Real_People == Max_Count_People)
             {
-                cost = Price * Days;
+                cost = _ICost.Cost(Price, Days);
             }
             else
             {
-                cost = Real_People * Days * 0.7;
+                cost = _ICost.Cost(Price, Days, Real_People, Max_Count_People);
             }
             return cost;
         }
@@ -79,14 +80,14 @@ namespace Hostel
 
     public class Suite : Room
     {
-        public Suite(int num, double cost) : base(num, cost)
+        public Suite(int num, double cost, ICost icost) : base(num, cost, icost)
         {
             Type = RoomType.Suite;
             Max_Count_People = 1;
         }
-        public override double Cost()
+        public double Cost()
         {
-            double cost = Days * Price;
+            double cost = _ICost.Cost(Price, Days);
             return cost;
         }
         //public Suite(int number, int people_cnt) : base(number, RoomType.Suite, people_cnt, 120) { }
@@ -94,14 +95,14 @@ namespace Hostel
 
     public class HalfSuite : Room
     {
-        public HalfSuite(int num, double cost) : base(num, cost)
+        public HalfSuite(int num, double cost, ICost icost) : base(num, cost, icost)
         {
             Type = RoomType.HalfSuite;
             Max_Count_People = 1;
         }
-        public override double Cost()
+        public double Cost()
         {
-            double cost = Days * Price;
+            double cost = _ICost.Cost(Price, Days);
             return cost;
         }
         //public HalfSuite(int number, int people_cnt) : base(number, RoomType.HalfSuite, people_cnt, 90) { }
@@ -110,82 +111,27 @@ namespace Hostel
     public class DoubleWithSofa : Room
     {
         public int Real_People { get; set; } // real count of people
-        public DoubleWithSofa(int num, double cost) : base(num, cost)
+        
+        public DoubleWithSofa(int num, double cost, ICost icost) : base(num, cost, icost)
         {
             Type = RoomType.DoubleWithSofa;
             Max_Count_People = 2;
             Real_People = 0;
         }
-        public override double Cost()
+        public double Cost()
         {
             double cost = 0;
             if (Real_People == Max_Count_People)
             {
-                cost = Price * Days;
+                cost = _ICost.Cost(Price, Days);
             }
             else
             {
-                cost = Real_People * Days * 0.7;
+                cost = _ICost.Cost(Price, Days, Real_People,Max_Count_People);
             }
             return cost;
         }
         //public DoubleWithSofa(int number, int people_cnt) : base(number, RoomType.DoubleWithSofa, people_cnt, 110) { }
     }
+
 }
-
-
-
-
-/*
-        //public virtual void CheckIn()
-        //{
-        //    IsOccupied = true;
-        //}
-
-        //public virtual void CheckOut()
-        //{
-        //    IsOccupied = false;
-        //}
-        //public void CheckIn() => IsOccupied = true;
-        //public void CheckOut() => IsOccupied = false;
-
-
-
-    //public class Booking
-    //{
-    //    public int BookingId { get; set; }
-    //    public Room Room { get; set; }
-    //    public DateTime CheckInDate { get; set; }
-    //    public DateTime CheckOutDate { get; set; }
-    //    public double TotalCost { get; set; }
-
-    //    public Booking(Room room, DateTime checkInDate, DateTime checkOutDate)
-    //    {
-    //        Room = room;
-    //        CheckInDate = checkInDate;
-    //        CheckOutDate = checkOutDate;
-    //        TotalCost = CalculateTotalCost();
-    //    }
-
-    //    private double CalculateTotalCost()
-    //    {
-    //        int days = (CheckOutDate - CheckInDate).Days;
-    //        return days * Room.Price;
-    //    }
-    //}
-
-    //public class Customer
-    //{
-    //    public int CustomerId { get; set; }
-    //    public string Name { get; set; }
-    //    public string PassportNumber { get; set; }
-    //    public List<Booking> Bookings { get; set; }
-
-    //    public Customer(string name, string passportNumber)
-    //    {
-    //        Name = name;
-    //        PassportNumber = passportNumber;
-    //        Bookings = new List<Booking>();
-    //    }
-    //}
-*/

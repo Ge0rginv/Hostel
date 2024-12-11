@@ -8,6 +8,7 @@ namespace HotelBooking
     public partial class MainWindow : Window
     {
         Modeling modeling = new Modeling();
+        bool ReadInf = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace HotelBooking
         private void ChangeDataButton_Click(object sender, RoutedEventArgs e)
         {
             ShowSection("DataEntry");
+            ReadInf = true;
             // в массивы загрузить информацию из формы : 
             /*
             public int M { get; set; } // количество дней моделирования
@@ -40,19 +42,21 @@ namespace HotelBooking
         // Обработчик для кнопки "Старт"
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
+            if(!ReadInf) modeling = new Modeling();
             ShowSection("Results");
             ResultsTextBox.Text = "";
             modeling.Start();
             string res = modeling.GetInf();
             // ResultsTextBox сделать шире, чтобы все данные было хорошо видно
             ResultsTextBox.Text = res;
+            ReadInf = false;
         }
 
         // Обработчик для кнопки "Назад"
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             ShowSection("Main");
-            modeling = new Modeling();
+            //modeling = new Modeling();
         }
 
         // Обработчик для кнопки "Начать генерацию"
@@ -98,7 +102,7 @@ namespace HotelBooking
         public int[] cnt_buzy {  get; set; } // количество занятых номеров каждого типа по индексам
         public int goodRequest {  get; set; } // количество успешно обработанных заявок
         public int bedRequest { get; set; } // количество необработанных заявок
-        public Reception reception { get; set; } // сам класс ресепшена в котором находится сам хостел
+        public Hotel hostel { get; set; } // сам класс хостела
         public int SumBuzyRooms { get; set; } // суммарное количество занятых номеров
         public List<double> MidSumBuzyRooms { get; set; } // лист с процентами занятости всей гостиницы
 
@@ -148,7 +152,8 @@ namespace HotelBooking
             for (int i = 0; i < 5; i++)
                 sum += CountRooms[i];
 
-            Reception reception = new Reception(CountRooms, CostRooms);
+            //reception = new Reception(CountRooms, CostRooms);
+            hostel = new Hotel(CountRooms, CostRooms);
             while(time<M*24)
             {
                 if (time % time_step == 0) // генерация заявки
@@ -156,7 +161,7 @@ namespace HotelBooking
                     string type = requestGenerator.room_type_random();
                     int checkInDate = requestGenerator.day(time / 24, M);
                     int checkOutDate = requestGenerator.day(checkInDate,  M);
-                    int res = reception.hostel.BookRoom(type, checkInDate, checkOutDate);
+                    int res = hostel.BookRoom(type, checkInDate, checkOutDate);
                     if (res == -1) ++bedRequest;
                     else ++goodRequest;
                 }
@@ -166,7 +171,7 @@ namespace HotelBooking
                 SumBuzyRooms = 0;
                 for (int i = 0; i < 5; ++i)
                 {
-                    cnt_buzy[i] = reception.hostel.buzyRooms(important[i], time);
+                    cnt_buzy[i] = hostel.buzyRooms(important[i], time);
                     SumBuzyRooms+= cnt_buzy[i];
                     persent_busy_typeofrooms[i].Add(cnt_buzy[i] * 100 / CountRooms[i]);
                 }
@@ -223,14 +228,12 @@ namespace HotelBooking
             resalt += "Статистика выполненных заявок: \n";
             if (goodRequest == 0) x = 100;
             else 
-                x = (goodRequest + bedRequest) * 100 / goodRequest;
+                x = (goodRequest) * 100 / (goodRequest + bedRequest);
             resalt += x.ToString() + "% \n";
 
             resalt += "Процент загруженности : \n";
 
             resalt += "* одноместных номеров: \n";
-            //resalt += (Math.Round(persent_busy_typeofrooms[0]*100)/100).ToString() + " %\n";
-            //resalt += persent_busy_typeofrooms[0].ToString() + " %\n";
             x = 0;
             for (int i = 0; i < persent_busy_typeofrooms[0].Count; ++i)
                 x += persent_busy_typeofrooms[0][i];
@@ -238,8 +241,6 @@ namespace HotelBooking
             resalt += Math.Round(x * 100 / 100).ToString() + " %\n";
 
             resalt += "* двухместных номеров: \n";
-            //resalt += (Math.Round(persent_busy_typeofrooms[3] * 100) / 100).ToString() + " %\n";
-            //resalt += persent_busy_typeofrooms[3].ToString() + " %\n";
             x = 0;
             for (int i = 0; i < persent_busy_typeofrooms[3].Count; ++i)
                 x += persent_busy_typeofrooms[3][i];
@@ -247,8 +248,6 @@ namespace HotelBooking
             resalt += Math.Round(x * 100 / 100).ToString() + " %\n";
 
             resalt += "* полулюкс номеров: \n";
-            //resalt += (Math.Round(persent_busy_typeofrooms[1] * 100) / 100).ToString() + " %\n";
-            //resalt += persent_busy_typeofrooms[1].ToString() + " %\n";
             x = 0;
             for (int i = 0; i < persent_busy_typeofrooms[1].Count; ++i)
                 x += persent_busy_typeofrooms[1][i];
@@ -256,8 +255,6 @@ namespace HotelBooking
             resalt += Math.Round(x * 100 / 100).ToString() + " %\n";
 
             resalt += "* люкс номеров: \n";
-            //resalt += (Math.Round(persent_busy_typeofrooms[2] * 100) / 100).ToString() + " %\n";
-            //resalt += persent_busy_typeofrooms[2].ToString() + " %\n";
             x = 0;
             for (int i = 0; i < persent_busy_typeofrooms[2].Count; ++i)
                 x += persent_busy_typeofrooms[2][i];
@@ -265,7 +262,6 @@ namespace HotelBooking
             resalt += Math.Round(x * 100 / 100).ToString() + " %\n";
 
             resalt += "* двухместных с диваном номеров: \n";
-            //resalt += (Math.Round(persent_busy_typeofrooms[4] * 100) / 100).ToString() + " %\n";
             x = 0;
             for (int i = 0; i < persent_busy_typeofrooms[4].Count; ++i)
                 x += persent_busy_typeofrooms[4][i];
@@ -273,8 +269,6 @@ namespace HotelBooking
             resalt += Math.Round(x*100/100).ToString() + " %\n";
 
             resalt += "Процент загруженности гостиницы: \n";
-            //resalt += (Math.Round(MidSumBuzyRooms * 100) / 100).ToString() + " %\n";
-            //resalt += MidSumBuzyRooms.ToString() + " %\n";
             x = 0;
             for (int i = 0; i < MidSumBuzyRooms.Count; ++i)
                 x += MidSumBuzyRooms[i];

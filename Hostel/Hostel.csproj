@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ICost.cs" />
     <Compile Include="Room.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -66,8 +67,6 @@
     </Compile>
     <Compile Include="Reception.cs" />
     <Compile Include="Hotel.cs" />
-    <Compile Include="IHotel.cs" />
-    <Compile Include="IRoom.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
