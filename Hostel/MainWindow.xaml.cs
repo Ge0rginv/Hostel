@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace HotelBooking
 {
@@ -57,6 +58,22 @@ namespace HotelBooking
             MessageBox.Show("Генерация данных началась! Проверьте результаты позже.", "Генерация", MessageBoxButton.OK, MessageBoxImage.Information);
             ShowSection("Results");
             if (!ReadInf) modeling = new Modeling();
+            ///
+            modeling.M = (int)DaysSlider.Value;// количество дней
+            modeling.time_step = (int)TimeSlider.Value;// промежуток подачи 
+            modeling.CountRooms[0]=(int)PriseSingle.Value;
+            modeling.CountRooms[1]=(int)PriceDouble.Value;
+            modeling.CountRooms[2] =(int)PriceSuite.Value;
+            modeling.CountRooms[3] =(int)PriceHalfSuite.Value;
+            modeling.CountRooms[4] = (int)PriceDoubleWithSofa.Value;
+            modeling.CostRooms[0] = int.Parse(CntDouble.Text);
+            modeling.CostRooms[1] = int.Parse(CntSingle.Text);
+            modeling.CostRooms[2] = int.Parse(CntSuite.Text);
+            modeling.CostRooms[3] = int.Parse(CntHalfSuite.Text);
+            modeling.CostRooms[4] = int.Parse(CntDoubleWithSofa.Text);
+
+
+
             ResultsTextBox.Text = "";
             modeling.Start();
             string res = modeling.GetInf();
@@ -75,35 +92,65 @@ namespace HotelBooking
 
         private void PriseSingle_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
+            ((Slider)sender).SelectionEnd = e.NewValue;
 
         }
 
         private void PriceDouble_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
+            ((Slider)sender).SelectionEnd = e.NewValue;
 
         }
 
         private void PriceSuite_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
+            ((Slider)sender).SelectionEnd = e.NewValue;
 
         }
 
         private void PriceHalfSuite_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
+            ((Slider)sender).SelectionEnd = e.NewValue;
 
         }
 
         private void PriceDoubleWithSofa_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
+            ((Slider)sender).SelectionEnd = e.NewValue;
 
         }
 
         private void TimeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-
+            ((Slider)sender).SelectionEnd = e.NewValue;
         }
 
         private void DaysSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            ((Slider)sender).SelectionEnd = e.NewValue;   
+        }
+
+        private void CntSingle_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void CntDouble_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void CntSuite_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void CntHalfSuite_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void CntDoubleWithSofa_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

@@ -22,7 +22,7 @@
             </Grid.ColumnDefinitions>
 
             <!-- Main Screen -->
-            <StackPanel x:Name="MainScreen" HorizontalAlignment="Center" VerticalAlignment="Center" Height="110" Width="200" Visibility="Collapsed" >
+            <StackPanel x:Name="MainScreen" HorizontalAlignment="Center" VerticalAlignment="Center" Height="110" Width="200"  >
                 <Button x:Name="ChangeDataButton" Content="Изменить данные" FontSize="18" Width="200" Height="40" 
                         Background="#4CAF50" Foreground="White" Margin="0,20,0,10" Click="ChangeDataButton_Click"/>
                 <Button x:Name="StartButton" Content="Старт" FontSize="18" Width="200" Height="40" 
@@ -30,8 +30,8 @@
             </StackPanel>
 
             <!-- Data Entry Section -->
-            <StackPanel x:Name="DataEntrySection" >
-                <TextBlock Text="Set Booking Parameters" FontSize="20" FontWeight="Bold" Foreground="#4CAF50" Margin="0,0,0,10"/>
+            <StackPanel x:Name="DataEntrySection" Visibility="Collapsed" >
+                <TextBlock Text="Set Booking Parameters" FontSize="20" FontWeight="Bold" Foreground="#4CAF50" Margin="0,0,0,10" />
                 <!-- Number of Days -->
                 <TextBlock Text="Number of Days (12-30)" FontWeight="SemiBold" Margin="0,10,0,5"/>
                 <Slider x:Name="DaysSlider" Minimum="12" Maximum="30" Value="12" TickFrequency="1" IsSnapToTickEnabled="True" 
@@ -78,7 +78,7 @@ Margin="212,0,17,10" ValueChanged="PriseSingle_ValueChanged"/>
                         <Slider x:Name="PriceDouble" Minimum="1" Maximum="30" Value="10" TickFrequency="1" IsSnapToTickEnabled="True" 
 Margin="212,0,17,10" ValueChanged="PriceDouble_ValueChanged"/>
                         <TextBox x:Name="CntDouble" Width="100" Margin="5,0,0,0" Grid.Column="2" 
-                     HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                     HorizontalAlignment="Right" VerticalAlignment="Center" TextChanged="CntDouble_TextChanged"/>
                     </Grid>
 
                     <!-- Suite -->
@@ -94,7 +94,7 @@ Margin="212,0,17,10" ValueChanged="PriceDouble_ValueChanged"/>
                         <Slider x:Name="PriceSuite" Minimum="1" Maximum="30" Value="10" TickFrequency="1" IsSnapToTickEnabled="True" 
 Margin="212,0,17,10" ValueChanged="PriceSuite_ValueChanged"/>
                         <TextBox x:Name="CntSuite" Width="100" Margin="5,0,0,0" Grid.Column="2" 
-                     HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                     HorizontalAlignment="Right" VerticalAlignment="Center" TextChanged="CntSuite_TextChanged"/>
                     </Grid>
 
                     <!-- HalfSuite -->
@@ -110,7 +110,7 @@ Margin="212,0,17,10" ValueChanged="PriceSuite_ValueChanged"/>
                         <Slider x:Name="PriceHalfSuite" Minimum="1" Maximum="30" Value="10" TickFrequency="1" IsSnapToTickEnabled="True" 
 Margin="212,0,17,10" ValueChanged="PriceHalfSuite_ValueChanged"/>
                         <TextBox x:Name="CntHalfSuite" Width="100" Margin="5,0,0,0" Grid.Column="2" 
-                     HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                     HorizontalAlignment="Right" VerticalAlignment="Center" TextChanged="CntHalfSuite_TextChanged"/>
                     </Grid>
 
                     <!-- DoubleWithSofa -->
@@ -126,7 +126,7 @@ Margin="212,0,17,10" ValueChanged="PriceHalfSuite_ValueChanged"/>
                         <Slider x:Name="PriceDoubleWithSofa" Minimum="1" Maximum="30" Value="10" TickFrequency="1" IsSnapToTickEnabled="True" 
 Margin="212,0,17,10" ValueChanged="PriceDoubleWithSofa_ValueChanged"/>
                         <TextBox x:Name="CntDoubleWithSofa" Width="100" Margin="5,0,0,0" Grid.Column="2" 
-                     HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                     HorizontalAlignment="Right" VerticalAlignment="Center" TextChanged="CntDoubleWithSofa_TextChanged"/>
                     </Grid>
                 </StackPanel>
 
