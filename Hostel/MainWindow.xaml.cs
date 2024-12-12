@@ -130,29 +130,169 @@ namespace HotelBooking
             ((Slider)sender).SelectionEnd = e.NewValue;   
         }
 
+        
         private void CntSingle_TextChanged(object sender, TextChangedEventArgs e)
         {
+            // Получаем текстовое поле, вызвавшее событие
+            TextBox textBox = sender as TextBox;
 
+            if (textBox == null)
+                return;
+
+            string input = textBox.Text;
+
+            // Проверяем, пустое ли поле
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                textBox.Text = ""; // Устанавливаем значение по умолчанию
+                return;
+            }
+
+            // Пытаемся преобразовать текст в число
+            if (decimal.TryParse(input, out decimal price))
+            {
+                // Накладываем ограничения
+                if (price < 0)
+                {
+                    textBox.Text = "1";
+                }
+                else if (price > 10000)
+                {
+                    textBox.Text = "10000";
+                }
+            }
+            else
+            {
+                 // Если текст не является числом, сбрасываем поле
+                 textBox.Text = "1";
+            }
+
+                 // Перемещаем курсор в конец текста (для удобства пользователя)
+                textBox.SelectionStart = textBox.Text.Length;
         }
 
         private void CntDouble_TextChanged(object sender, TextChangedEventArgs e)
         {
+            TextBox textBox = sender as TextBox;
+            if (textBox == null)
+                return;
+            string input = textBox.Text;
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                textBox.Text = ""; 
+                return;
+            }
 
+            if (decimal.TryParse(input, out decimal price))
+            {
+                if (price < 0)
+                {
+                    textBox.Text = "1";
+                }
+                else if (price > 10000)
+                {
+                    textBox.Text = "10000";
+                }
+            }
+            else
+            {
+                textBox.Text = "1";
+            }
+
+            textBox.SelectionStart = textBox.Text.Length;
         }
 
-        private void CntSuite_TextChanged(object sender, TextChangedEventArgs e)
+        private void CntSuite_TextChanged(object sender, TextChangedEventArgs e)    
         {
+            TextBox textBox = sender as TextBox;
+            if (textBox == null)
+                return;
+            string input = textBox.Text;
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                textBox.Text = "";
+                return;
+            }
 
+            if (decimal.TryParse(input, out decimal price))
+            {
+                if (price < 0)
+                {
+                    textBox.Text = "1";
+                }
+                else if (price > 10000)
+                {
+                    textBox.Text = "10000";
+                }
+            }
+            else
+            {
+                textBox.Text = "1";
+            }
+
+            textBox.SelectionStart = textBox.Text.Length;
         }
 
         private void CntHalfSuite_TextChanged(object sender, TextChangedEventArgs e)
         {
+            TextBox textBox = sender as TextBox;
+            if (textBox == null)
+                return;
+            string input = textBox.Text;
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                textBox.Text = "";
+                return;
+            }
 
+            if (decimal.TryParse(input, out decimal price))
+            {
+                if (price < 0)
+                {
+                    textBox.Text = "1";
+                }
+                else if (price > 10000)
+                {
+                    textBox.Text = "10000";
+                }
+            }
+            else
+            {
+                textBox.Text = "1";
+            }
+
+            textBox.SelectionStart = textBox.Text.Length;
         }
 
         private void CntDoubleWithSofa_TextChanged(object sender, TextChangedEventArgs e)
         {
+            TextBox textBox = sender as TextBox;
+            if (textBox == null)
+                return;
+            string input = textBox.Text;
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                textBox.Text = "";
+                return;
+            }
 
+            if (decimal.TryParse(input, out decimal price))
+            {
+                if (price < 0)
+                {
+                    textBox.Text = "1";
+                }
+                else if (price > 10000)
+                {
+                    textBox.Text = "10000";
+                }
+            }
+            else
+            {
+                textBox.Text = "1";
+            }
+
+            textBox.SelectionStart = textBox.Text.Length;
         }
     }
 
