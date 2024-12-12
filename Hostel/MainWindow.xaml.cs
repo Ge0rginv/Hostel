@@ -13,16 +13,7 @@ namespace HotelBooking
         {
             InitializeComponent();
 
-            // Пример начальных данных для DataGrid
-            RoomDataGrid.ItemsSource = new List<RoomDetails>
-            {
-                new RoomDetails { RoomType = "Single", Quantity = 5, Price = 100 },
-                new RoomDetails { RoomType = "Double", Quantity = 3, Price = 150 },
-                new RoomDetails { RoomType = "Suite", Quantity = 1, Price = 113 },
-                new RoomDetails { RoomType = "HalfSuite", Quantity = 3, Price = 170 },
-                new RoomDetails { RoomType = "DoubleWithSofa", Quantity = 2, Price = 140 },
-                //new RoomDetails { RoomType = "Double", Quantity = 3, Price = 159 }
-            };
+          
         }
 
         // Обработчик для кнопки "Изменить данные"
@@ -78,6 +69,43 @@ namespace HotelBooking
             MainScreen.Visibility = section == "Main" ? Visibility.Visible : Visibility.Collapsed;
             DataEntrySection.Visibility = section == "DataEntry" ? Visibility.Visible : Visibility.Collapsed;
             ResultsSection.Visibility = section == "Results" ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+       
+
+        private void PriseSingle_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
+
+        private void PriceDouble_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
+
+        private void PriceSuite_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
+
+        private void PriceHalfSuite_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
+
+        private void PriceDoubleWithSofa_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
+
+        private void TimeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
+
+        private void DaysSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
         }
     }
 
