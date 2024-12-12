@@ -294,6 +294,11 @@ namespace HotelBooking
 
             textBox.SelectionStart = textBox.Text.Length;
         }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close(); // закрытие окна
+        }
     }
 
     // Модель для данных о номерах

@@ -9,7 +9,7 @@
         </Grid.RowDefinitions>
 
         <!-- Header -->
-        <DockPanel Background="#4CAF50" Height="70" VerticalAlignment="Top">
+        <DockPanel Background="Green" Height="70" VerticalAlignment="Top">
             <TextBlock Text="Hotel Booking System" FontSize="28" FontWeight="Bold" Foreground="White" 
                        VerticalAlignment="Center" Margin="20,0" DockPanel.Dock="Left"/>
         </DockPanel>
@@ -22,16 +22,18 @@
             </Grid.ColumnDefinitions>
 
             <!-- Main Screen -->
-            <StackPanel x:Name="MainScreen" HorizontalAlignment="Center" VerticalAlignment="Center" Height="110" Width="200"   >
+            <StackPanel x:Name="MainScreen" HorizontalAlignment="Center" VerticalAlignment="Center" Height="278" Width="1020"   >
                 <Button x:Name="ChangeDataButton" Content="Изменить данные" FontSize="18" Width="200" Height="40" 
-                        Background="#4CAF50" Foreground="White" Margin="0,20,0,10" Click="ChangeDataButton_Click"/>
-                <Button x:Name="StartButton" Content="Старт" FontSize="18" Width="200" Height="40" 
-                        Background="#2196F3" Foreground="White" Click="StartButton_Click"/>
+                        Background="Green" Foreground="White" Margin="0,20,0,10" Click="ChangeDataButton_Click" HorizontalAlignment="Center"/>
+                <Button x:Name="StartButton" Content="Старт" FontSize="18" Width="200" Height="42" 
+                        Background="#2196F3" Foreground="White" Margin="0,20,0,10" Click="StartButton_Click"/>
+                <Button x:Name="Exit" Content="Выйти" FontSize="18" Width="200" Height="40" 
+                        Background="Red" Foreground="White" Margin="0,20,0,10" Click="ExitButton_Click"/>
             </StackPanel>
 
             <!-- Data Entry Section -->
             <StackPanel x:Name="DataEntrySection" Visibility="Collapsed">
-                <TextBlock Text="Set Booking Parameters" FontSize="20" FontWeight="Bold" Foreground="#4CAF50" Margin="0,0,0,10" />
+                <TextBlock Text="Set Booking Parameters" FontSize="20" FontWeight="Bold" Foreground="Green" Margin="0,0,0,10" />
 
                 <!-- Number of Days -->
                 <TextBlock Text="Number of Days (12-30)" FontWeight="SemiBold" Margin="0,10,0,5"/>
@@ -60,7 +62,7 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="Single:" Grid.Column="0" VerticalAlignment="Center" Margin="5,0,0,0"/>
-                        <Slider x:Name="PriseSingle" Minimum="1" Maximum="30" Value="10" TickFrequency="1" IsSnapToTickEnabled="True" 
+                        <Slider x:Name="PriseSingle" Minimum="1" Maximum="30" Value="1" TickFrequency="1" IsSnapToTickEnabled="True" 
                     Margin="141,0,50,10" ValueChanged="PriseSingle_ValueChanged"/>
                         <TextBlock Text="{Binding ElementName=PriseSingle, Path=Value, StringFormat='Selected: {0}'}" 
                        Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontStyle="Italic"/>
@@ -91,7 +93,7 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="Double:" Grid.Column="0" VerticalAlignment="Center" Margin="5,0,0,0"/>
-                        <Slider x:Name="PriceDouble" Minimum="1" Maximum="30" Value="10" TickFrequency="1" IsSnapToTickEnabled="True" 
+                        <Slider x:Name="PriceDouble" Minimum="1" Maximum="30" Value="1" TickFrequency="1" IsSnapToTickEnabled="True" 
                     Margin="139,0,50,10" ValueChanged="PriceDouble_ValueChanged"/>
                         <TextBlock Text="{Binding ElementName=PriceDouble, Path=Value, StringFormat='Selected: {0}'}" 
                        Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontStyle="Italic"/>
@@ -121,7 +123,7 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="Suite:" Grid.Column="0" VerticalAlignment="Center" Margin="5,0,0,0"/>
-                        <Slider x:Name="PriceSuite" Minimum="1" Maximum="30" Value="10" TickFrequency="1" IsSnapToTickEnabled="True" 
+                        <Slider x:Name="PriceSuite" Minimum="1" Maximum="30" Value="1" TickFrequency="1" IsSnapToTickEnabled="True" 
                     Margin="141,0,50,10" ValueChanged="PriceSuite_ValueChanged"/>
                         <TextBlock Text="{Binding ElementName=PriceSuite, Path=Value, StringFormat='Selected: {0}'}" 
                        Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontStyle="Italic"/>
@@ -151,7 +153,7 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="HalfSuite:" Grid.Column="0" VerticalAlignment="Center" Margin="5,0,0,0"/>
-                        <Slider x:Name="PriceHalfSuite" Minimum="1" Maximum="30" Value="10" TickFrequency="1" IsSnapToTickEnabled="True" 
+                        <Slider x:Name="PriceHalfSuite" Minimum="1" Maximum="30" Value="1" TickFrequency="1" IsSnapToTickEnabled="True" 
                     Margin="140,0,50,10" ValueChanged="PriceHalfSuite_ValueChanged"/>
                         <TextBlock Text="{Binding ElementName=PriceHalfSuite, Path=Value, StringFormat='Selected: {0}'}" 
                        Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontStyle="Italic"/>
@@ -181,7 +183,7 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="DoubleWithSofa:" Grid.Column="0" VerticalAlignment="Center" Margin="5,0,0,0"/>
-                        <Slider x:Name="PriceDoubleWithSofa" Minimum="1" Maximum="30" Value="10" TickFrequency="1" IsSnapToTickEnabled="True" 
+                        <Slider x:Name="PriceDoubleWithSofa" Minimum="1" Maximum="30" Value="1" TickFrequency="1" IsSnapToTickEnabled="True" 
                     Margin="139,0,50,10" ValueChanged="PriceDoubleWithSofa_ValueChanged"/>
                         <TextBlock Text="{Binding ElementName=PriceDoubleWithSofa, Path=Value, StringFormat='Selected: {0}'}" 
                        Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontStyle="Italic"/>
@@ -205,9 +207,9 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
-                    <Button Content="Назад" Background="#FF5722" Foreground="White" 
+                    <Button Content="Назад" Background="Red" Foreground="White" 
                 FontWeight="Bold" Height="40" Width="150" Margin="0,0,10,0" Click="BackButton_Click"/>
-                    <Button Content="Начать генерацию" Background="#4CAF50" Foreground="White" 
+                    <Button Content="Начать генерацию" Background="Green" Foreground="White" 
                 FontWeight="Bold" Height="40" Width="143" Click="GenerateButton_Click"/>
                 </StackPanel>
             </StackPanel>
@@ -215,11 +217,11 @@
 
             <!-- Results Section -->
             <StackPanel x:Name="ResultsSection" Visibility="Collapsed">
-                <TextBlock Text="Available Rooms" FontSize="20" FontWeight="Bold" Foreground="#4CAF50" Margin="0,0,0,10"/>
+                <TextBlock Text="Available Rooms" FontSize="20" FontWeight="Bold" Foreground="Green" Margin="0,0,0,10"/>
                 <TextBox x:Name="ResultsTextBox" IsReadOnly="True" Height="300" Margin="0,10,0,50" 
                          Background="#f0f0f0" VerticalScrollBarVisibility="Auto"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
-                    <Button Content="Назад" Background="#FF5722" Foreground="White" 
+                    <Button Content="Назад" Background="Red" Foreground="White" 
                             FontWeight="Bold" Height="40" Width="150" Margin="0,0,10,0" Click="BackButton_Click"/>
                 </StackPanel>
             </StackPanel>
