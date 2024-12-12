@@ -22,7 +22,7 @@
             </Grid.ColumnDefinitions>
 
             <!-- Main Screen -->
-            <StackPanel x:Name="MainScreen" HorizontalAlignment="Center" VerticalAlignment="Center" Height="110" Width="200">
+            <StackPanel x:Name="MainScreen" HorizontalAlignment="Center" VerticalAlignment="Center" Height="110" Width="200" Visibility="Collapsed">
                 <Button x:Name="ChangeDataButton" Content="Изменить данные" FontSize="18" Width="200" Height="40" 
                         Background="#4CAF50" Foreground="White" Margin="0,20,0,10" Click="ChangeDataButton_Click"/>
                 <Button x:Name="StartButton" Content="Старт" FontSize="18" Width="200" Height="40" 
@@ -30,34 +30,101 @@
             </StackPanel>
 
             <!-- Data Entry Section -->
-            <StackPanel x:Name="DataEntrySection" Visibility="Collapsed" >
+            <StackPanel x:Name="DataEntrySection">
                 <TextBlock Text="Set Booking Parameters" FontSize="20" FontWeight="Bold" Foreground="#4CAF50" Margin="0,0,0,10"/>
                 <!-- Number of Days -->
                 <TextBlock Text="Number of Days (12-30)" FontWeight="SemiBold" Margin="0,10,0,5"/>
                 <Slider x:Name="DaysSlider" Minimum="12" Maximum="30" Value="12" TickFrequency="1" IsSnapToTickEnabled="True" 
-                        Margin="0,0,0,10"/>
+            Margin="0,0,0,10"/>
                 <TextBlock Text="{Binding ElementName=DaysSlider, Path=Value, StringFormat='Selected: {0} Days'}" 
-                           Margin="0,0,0,10" FontStyle="Italic"/>
+               Margin="0,0,0,10" FontStyle="Italic"/>
                 <!-- Time Between Requests -->
                 <TextBlock Text="Time Between Requests (1-5 Hours)" FontWeight="SemiBold" Margin="0,10,0,5"/>
                 <Slider x:Name="TimeSlider" Minimum="1" Maximum="5" Value="1" TickFrequency="1" IsSnapToTickEnabled="True" 
-                        Margin="0,0,0,10"/>
+            Margin="0,0,0,10"/>
                 <TextBlock Text="{Binding ElementName=TimeSlider, Path=Value, StringFormat='Selected: {0} Hours'}" 
-                           Margin="0,0,0,10" FontStyle="Italic"/>
+               Margin="0,0,0,10" FontStyle="Italic"/>
                 <!-- Room Details -->
                 <TextBlock Text="Room Details" FontWeight="SemiBold" Margin="0,20,0,10"/>
-                <DataGrid x:Name="RoomDataGrid" AutoGenerateColumns="False" Height="200" Margin="0,10,0,10" CanUserAddRows="True">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Room Type" Binding="{Binding RoomType}" Width="*"/>
-                        <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" Width="*"/>
-                        <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="*"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+
+                <!-- Room Grid -->
+                <StackPanel Orientation="Vertical">
+                    <!-- Single -->
+                    <Grid Margin="0,5,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Single" Grid.Column="0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="PriceSingle" Width="100" Margin="5,0,0,0" Grid.Column="1" 
+                     HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox x:Name="CntSingle" Width="100" Margin="5,0,0,0" Grid.Column="2" 
+                     HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    </Grid>
+
+                    <!-- Double -->
+                    <Grid Margin="0,5,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Double" Grid.Column="0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="PriceDouble" Width="100" Margin="5,0,0,0" Grid.Column="1" 
+                     HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox x:Name="CntDouble" Width="100" Margin="5,0,0,0" Grid.Column="2" 
+                     HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    </Grid>
+
+                    <!-- Suite -->
+                    <Grid Margin="0,5,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Suite" Grid.Column="0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="PriceSuite" Width="100" Margin="5,0,0,0" Grid.Column="1" 
+                     HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox x:Name="CntSuite" Width="100" Margin="5,0,0,0" Grid.Column="2" 
+                     HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    </Grid>
+
+                    <!-- HalfSuite -->
+                    <Grid Margin="0,5,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="HalfSuite" Grid.Column="0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="PriceHalfSuite" Width="100" Margin="5,0,0,0" Grid.Column="1" 
+                     HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox x:Name="CntHalfSuite" Width="100" Margin="5,0,0,0" Grid.Column="2" 
+                     HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    </Grid>
+
+                    <!-- DoubleWithSofa -->
+                    <Grid Margin="0,5,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="DoubleWithSofa" Grid.Column="0" VerticalAlignment="Center"/>
+                        <TextBox x:Name="PriceDoubleWithSofa" Width="100" Margin="5,0,0,0" Grid.Column="1" 
+                     HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <TextBox x:Name="CntDoubleWithSofa" Width="100" Margin="5,0,0,0" Grid.Column="2" 
+                     HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    </Grid>
+                </StackPanel>
+
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
                     <Button Content="Назад" Background="#FF5722" Foreground="White" 
-                            FontWeight="Bold" Height="40" Width="150" Margin="0,0,10,0" Click="BackButton_Click"/>
+                FontWeight="Bold" Height="40" Width="150" Margin="0,0,10,0" Click="BackButton_Click"/>
                     <Button Content="Начать генерацию" Background="#4CAF50" Foreground="White" 
-                            FontWeight="Bold" Height="40" Width="143" Click="GenerateButton_Click"/>
+                FontWeight="Bold" Height="40" Width="143" Click="GenerateButton_Click"/>
                 </StackPanel>
             </StackPanel>
 
