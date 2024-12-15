@@ -78,6 +78,7 @@ namespace HotelBooking
             modeling.Start();
             string res = modeling.GetInf();
             ResultsTextBox.Text = res;
+            ReadInf=false;
         }
 
         // Метод для управления видимостью секций
