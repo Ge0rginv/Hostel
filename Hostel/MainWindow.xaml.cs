@@ -66,11 +66,52 @@ namespace HotelBooking
             modeling.CountRooms[2] =(int)PriceSuite.Value;
             modeling.CountRooms[3] =(int)PriceHalfSuite.Value;
             modeling.CountRooms[4] = (int)PriceDoubleWithSofa.Value;
-            modeling.CostRooms[0] = int.Parse(CntDouble.Text);
-            modeling.CostRooms[1] = int.Parse(CntSingle.Text);
-            modeling.CostRooms[2] = int.Parse(CntSuite.Text);
-            modeling.CostRooms[3] = int.Parse(CntHalfSuite.Text);
-            modeling.CostRooms[4] = int.Parse(CntDoubleWithSofa.Text);
+            int c0, c1, c2, c3, c4;
+            if (CntDouble.Text == "")
+            {
+                c0 = 100;
+            }
+            else
+            {
+                c0=int.Parse(CntDouble.Text);
+            }
+            modeling.CostRooms[0] =c0 ;
+            if (CntSingle.Text == "")
+            {
+                c1 = 100;
+            }
+            else
+            {
+                c1 = int.Parse(CntSingle.Text);
+            }
+            modeling.CostRooms[1] = c1;
+            if (CntSuite.Text == "")
+            {
+                c2 = 100;
+            }
+            else
+            {
+                c2 = int.Parse(CntSuite.Text);
+            }
+            modeling.CostRooms[2] = c2;
+            if (CntHalfSuite.Text == "")
+            {
+                c3 = 100;
+            }
+            else
+            {
+                c3 = int.Parse(CntHalfSuite.Text);
+            }
+            modeling.CostRooms[3] = c3;
+            if (CntDoubleWithSofa.Text == "")
+            {
+                c4 = 100;
+            }
+            else
+            {
+                c4 = int.Parse(CntDoubleWithSofa.Text);
+            }
+            modeling.CostRooms[4] = c4;
 
 
 
@@ -134,26 +175,20 @@ namespace HotelBooking
         
         private void CntSingle_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // Получаем текстовое поле, вызвавшее событие
             TextBox textBox = sender as TextBox;
-
             if (textBox == null)
                 return;
-
             string input = textBox.Text;
-
-            // Проверяем, пустое ли поле
             if (string.IsNullOrWhiteSpace(input))
             {
-                textBox.Text = ""; // Устанавливаем значение по умолчанию
+                textBox.Text = "";
                 return;
             }
 
-            // Пытаемся преобразовать текст в число
-            if (decimal.TryParse(input, out decimal price))
+            if (int.TryParse(input, out int price))
             {
-                // Накладываем ограничения
-                if (price < 0)
+  
+                if (price <= 0)
                 {
                     textBox.Text = "1";
                 }
@@ -162,48 +197,17 @@ namespace HotelBooking
                     textBox.Text = "10000";
                 }
             }
-            else
-            {
-                 // Если текст не является числом, сбрасываем поле
-                 textBox.Text = "1";
-            }
 
-                 // Перемещаем курсор в конец текста (для удобства пользователя)
-                textBox.SelectionStart = textBox.Text.Length;
-        }
-
-        private void CntDouble_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            if (textBox == null)
-                return;
-            string input = textBox.Text;
-            if (string.IsNullOrWhiteSpace(input))
-            {
-                textBox.Text = ""; 
-                return;
-            }
-
-            if (decimal.TryParse(input, out decimal price))
-            {
-                if (price < 0)
-                {
-                    textBox.Text = "1";
-                }
-                else if (price > 10000)
-                {
-                    textBox.Text = "10000";
-                }
-            }
             else
             {
                 textBox.Text = "1";
             }
+            
 
             textBox.SelectionStart = textBox.Text.Length;
         }
 
-        private void CntSuite_TextChanged(object sender, TextChangedEventArgs e)    
+        private void CntDouble_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox textBox = sender as TextBox;
             if (textBox == null)
@@ -215,9 +219,10 @@ namespace HotelBooking
                 return;
             }
 
-            if (decimal.TryParse(input, out decimal price))
+            if (int.TryParse(input, out int price))
             {
-                if (price < 0)
+
+                if (price <= 0)
                 {
                     textBox.Text = "1";
                 }
@@ -226,10 +231,46 @@ namespace HotelBooking
                     textBox.Text = "10000";
                 }
             }
+
             else
             {
                 textBox.Text = "1";
             }
+
+
+            textBox.SelectionStart = textBox.Text.Length;
+        }
+
+        private void CntSuite_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox == null)
+                return;
+            string input = textBox.Text;
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                textBox.Text = "";
+                return;
+            }
+
+            if (int.TryParse(input, out int price))
+            {
+
+                if (price <= 0)
+                {
+                    textBox.Text = "1";
+                }
+                else if (price > 10000)
+                {
+                    textBox.Text = "10000";
+                }
+            }
+
+            else
+            {
+                textBox.Text = "1";
+            }
+
 
             textBox.SelectionStart = textBox.Text.Length;
         }
@@ -246,9 +287,10 @@ namespace HotelBooking
                 return;
             }
 
-            if (decimal.TryParse(input, out decimal price))
+            if (int.TryParse(input, out int price))
             {
-                if (price < 0)
+
+                if (price <= 0)
                 {
                     textBox.Text = "1";
                 }
@@ -257,10 +299,12 @@ namespace HotelBooking
                     textBox.Text = "10000";
                 }
             }
+
             else
             {
                 textBox.Text = "1";
             }
+
 
             textBox.SelectionStart = textBox.Text.Length;
         }
@@ -277,9 +321,10 @@ namespace HotelBooking
                 return;
             }
 
-            if (decimal.TryParse(input, out decimal price))
+            if (int.TryParse(input, out int price))
             {
-                if (price < 0)
+
+                if (price <= 0)
                 {
                     textBox.Text = "1";
                 }
@@ -288,10 +333,12 @@ namespace HotelBooking
                     textBox.Text = "10000";
                 }
             }
+
             else
             {
                 textBox.Text = "1";
             }
+
 
             textBox.SelectionStart = textBox.Text.Length;
         }
