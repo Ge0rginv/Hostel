@@ -16,7 +16,7 @@ namespace Hostel
     }
     public abstract class Room 
     {
-        public int Number { get; } // количество номеров
+        public int Number { get; } // номер комнаты
         public RoomType Type { get; set; } // тип номера
         public double Price { get; } // Цена
         public int Max_Count_People { get; set; } // max count people
