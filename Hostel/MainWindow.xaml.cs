@@ -117,7 +117,7 @@ namespace HotelBooking
             }
             else
             {
-                c0 = int.Parse(CntDouble.Text);
+                c0 = int.Parse(CntSingle.Text);
             }
             modeling.CostRooms[0] = c0;
             if (CntSingle.Text == "")
@@ -126,7 +126,7 @@ namespace HotelBooking
             }
             else
             {
-                c1 = int.Parse(CntSingle.Text);
+                c1 = int.Parse(CntDouble.Text);
             }
             modeling.CostRooms[1] = c1;
             if (CntSuite.Text == "")
