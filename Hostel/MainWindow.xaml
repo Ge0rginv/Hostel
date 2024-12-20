@@ -218,11 +218,7 @@
 
 
             <!-- Results Section -->
-<<<<<<< HEAD
             <StackPanel x:Name="ResultsSection" Visibility="Collapsed" DataContext="{}">
-=======
-            <StackPanel x:Name="ResultsSection" Visibility="Collapsed">
->>>>>>> 91969811482fa5002a2f3a282df83a635e9efe31
                 <TextBlock Text="Available Rooms" FontSize="20" FontWeight="Bold" Foreground="Green" Margin="0,0,0,10"/>
                 <TextBox x:Name="ResultsTextBox" IsReadOnly="True" Height="300" Margin="0,10,0,50" 
                          Background="#f0f0f0" VerticalScrollBarVisibility="Auto" Width="1064"/>
