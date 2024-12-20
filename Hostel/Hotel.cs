@@ -8,6 +8,27 @@ using System.Runtime.InteropServices;
 
 namespace Hostel
 {
+    public struct pair : IComparable<pair>
+    {
+        public int f;
+        public int s;
+        public pair(int f, int s)
+        {
+            this.f = f;
+            this.s = s;
+        }
+        public int CompareTo(pair point)
+        {
+            if (this.f == point.f)
+                return s.CompareTo(point.s);
+            return f.CompareTo(point.f);
+        }
+        public override string ToString()
+        {
+            //return string.Format($"{f:f6} {s}");
+            return string.Format($"{f} {s}");
+        }
+    }
     // Hotel class
     public class Hotel
     {
@@ -21,7 +42,7 @@ namespace Hostel
         public DoubleWithSofa[] doubleWithSofaRooms;
 
         public int[] Max_Num; // максимальный номер комнаты объединенные в блоки по типу комнаты
-        public SortedList<int, int> occupied; // лист занятых или забронированных номеров
+        public List<pair> occupied; // лист занятых или забронированных номеров
         public int[] Count_occupied; // количество занятых комнат объединенные в блоки по типу комнаты
 
         public Hotel(int[] k, double[] cost)
@@ -30,7 +51,7 @@ namespace Hostel
             Cnt_Rooms = k;
             Max_Num = new int[5];
             singleRooms = new SingleRoom[k[0]];
-            occupied = new SortedList<int, int>();
+            occupied = new List<pair>();
             Count_occupied = new int[5];
             for (int i = 0; i < 5; ++i)
             {
@@ -108,7 +129,7 @@ namespace Hostel
                             currentRoom[i].FirstDay = checkInDate;
                             currentRoom[i].LastDay = checkOutDate;
                             currentRoom[i].Days = checkOutDate - checkInDate;
-                            occupied.Add(currentRoom[i].Number, checkInDate);
+                            occupied.Add(new pair (currentRoom[i].Number, checkInDate));
                             switch (roomType)
                             {
                                 case RoomType.Single:
@@ -145,53 +166,53 @@ namespace Hostel
 
 
         // выселение с подсчетом стоимости проживания
-        public double CheckOut(int roomNumber)
+        public double CheckOut(int roomNumber, int CheckOutDay)
         {
-            if (roomNumber < Max_Num[0])
+            if (roomNumber <= Max_Num[0])
             {
-                double cost = singleRooms[roomNumber].Cost();
-                occupied.Remove(roomNumber);
+                double cost = singleRooms[roomNumber - 1].Cost();
+                occupied.Remove(new pair(roomNumber, CheckOutDay));
                 //occupied.RemoveAt(occupied.Count - 1); // del in Queue or SortedList Occupied
-                singleRooms[roomNumber].Occupied = false;
-                singleRooms[roomNumber].Days = 0;
+                singleRooms[roomNumber - 1].Occupied = false;
+                singleRooms[roomNumber - 1].Days = 0;
                 return cost;
             }
-            else if (roomNumber < Max_Num[1])
+            else if (roomNumber <= Max_Num[1])
             {
-                double cost = doubleRooms[roomNumber - Max_Num[0]].Cost();
-                occupied.Remove(roomNumber); // del in SortedList Occupied
+                double cost = doubleRooms[roomNumber - Max_Num[0]-1].Cost();
+                occupied.Remove(new pair(roomNumber, CheckOutDay)); // del in SortedList Occupied
                 // occupied.RemoveAt(occupied.Count - 1);
-                doubleRooms[roomNumber - Max_Num[0]].Occupied = false;
-                doubleRooms[roomNumber - Max_Num[0]].Days = 0;
-                doubleRooms[roomNumber - Max_Num[0]].Real_People = 0;
+                doubleRooms[roomNumber - Max_Num[0] - 1].Occupied = false;
+                doubleRooms[roomNumber - Max_Num[0] - 1].Days = 0;
+                doubleRooms[roomNumber - Max_Num[0] - 1].Real_People = 0;
                 return cost;
             }
-            else if (roomNumber < Max_Num[2])
+            else if (roomNumber <= Max_Num[2])
             {
-                double cost = suiteRooms[roomNumber - Max_Num[1]].Cost();
-                occupied.Remove(roomNumber);
+                double cost = suiteRooms[roomNumber - Max_Num[1]-1].Cost();
+                occupied.Remove(new pair(roomNumber, CheckOutDay));
                 //occupied.RemoveAt(occupied.Count - 1); // del in Queue or SortedList Occupied
-                suiteRooms[roomNumber - Max_Num[1]].Occupied = false;
-                suiteRooms[roomNumber - Max_Num[1]].Days = 0;
+                suiteRooms[roomNumber - Max_Num[1] - 1].Occupied = false;
+                suiteRooms[roomNumber - Max_Num[1] - 1].Days = 0;
                 return cost;
             }
-            else if (roomNumber < Max_Num[3])
+            else if (roomNumber <= Max_Num[3])
             {
-                double cost = halfSuiteRooms[roomNumber - Max_Num[2]].Cost();
-                occupied.Remove(roomNumber);
+                double cost = halfSuiteRooms[roomNumber - Max_Num[2]-1].Cost();
+                occupied.Remove(new pair(roomNumber, CheckOutDay));
                 //occupied.RemoveAt(occupied.Count - 1); // del in Queue or SortedList Occupied
-                halfSuiteRooms[roomNumber - Max_Num[2]].Occupied = false;
-                halfSuiteRooms[roomNumber - Max_Num[2]].Days = 0;
+                halfSuiteRooms[roomNumber - Max_Num[2] - 1].Occupied = false;
+                halfSuiteRooms[roomNumber - Max_Num[2] - 1].Days = 0;
                 return cost;
             }
             else
             {
-                double cost = doubleWithSofaRooms[roomNumber - Max_Num[3]].Cost();
-                occupied.Remove(roomNumber);
+                double cost = doubleWithSofaRooms[roomNumber - Max_Num[3]-1].Cost();
+                occupied.Remove(new pair(roomNumber, CheckOutDay));
                 //occupied.RemoveAt(occupied.Count - 1); // del in Queue or SortedList Occupied
-                doubleWithSofaRooms[roomNumber - Max_Num[3]].Occupied = false;
-                doubleWithSofaRooms[roomNumber - Max_Num[3]].Days = 0;
-                doubleWithSofaRooms[roomNumber - Max_Num[3]].Real_People = 0;
+                doubleWithSofaRooms[roomNumber - Max_Num[3] - 1].Occupied = false;
+                doubleWithSofaRooms[roomNumber - Max_Num[3] - 1].Days = 0;
+                doubleWithSofaRooms[roomNumber - Max_Num[3] - 1].Real_People = 0;
                 return cost;
             }
         }
@@ -251,20 +272,6 @@ namespace Hostel
                 }
             }
             return cnt;
-        }
-        public double Cost(int number)
-        {
-            double cost = 0;
-            int id = 0;
-            for (int i = 0; i < Max_Num.Length; ++i)
-            {
-                if (number <= Max_Num[i])
-                {
-                    id = i;
-                    break;
-                }
-            }
-            return cost;
         }
     }
 
