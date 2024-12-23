@@ -33,7 +33,7 @@ namespace HotelBooking
 
 
         public event PropertyChangedEventHandler PropertyChanged;
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "A")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -48,18 +48,8 @@ namespace HotelBooking
         {
             InitializeComponent();
 
-            textInput = new TextShower() { SourceData = "BlaBlaBla" };
-            // New binding object using the path of 'Name' for whatever source object is used
-            var nameBindingObject = new Binding("SourceData");
-
-            // Configure the binding
-            nameBindingObject.Mode = BindingMode.TwoWay;
-            nameBindingObject.Source = textInput;
-            //nameBindingObject.Converter = NameConverter.Instance;
-            nameBindingObject.ConverterCulture = new CultureInfo("ru-RU");
-
-            // Set the binding to a target object. The TextBlock.Name property on the NameBlock UI element
-            BindingOperations.SetBinding(ResultsTextBox, TextBox.TextProperty, nameBindingObject);
+            textInput = new TextShower() { SourceData = "" };
+            this.DataContext = textInput;
         }
 
         // Обработчик для кнопки "Изменить данные"
@@ -76,18 +66,20 @@ namespace HotelBooking
             StopOutput = false;
             if (!ReadInf) modeling = new Modeling();
             ShowSection("Results");
-            ResultsTextBox.Text = "";
+            textInput.SourceData = "";
             List<string> res = modeling.Start();
             await Task.Run(() =>
             {
-                for (int i = 0; i < res.Count && !StopOutput; ++i)
+                for (int i = 0; i < res.Count; ++i)
                 {
-                    //textInput.SourceData += $"\nЭто строка номер {i}";
-                    textInput.SourceData = res[i];
-                    Thread.Sleep(1000);
+                    Dispatcher.Invoke(() => { textInput.SourceData = res[i]; });
+                    for (int j = 0; j < 3 && !StopOutput; j++)
+                    {
+                        Thread.Sleep(500);
+                    }
                 }
             });
-            ResultsTextBox.Text = modeling.GetInf();
+            textInput.SourceData = modeling.GetInf();
             ReadInf = false;
         }
 
@@ -111,7 +103,7 @@ namespace HotelBooking
             modeling.CountRooms[3] = (int)PriceHalfSuite.Value;
             modeling.CountRooms[4] = (int)PriceDoubleWithSofa.Value;
             int c0, c1, c2, c3, c4;
-            if (CntDouble.Text == "")
+            if (CntSingle.Text == "")
             {
                 c0 = 100;
             }
@@ -120,7 +112,7 @@ namespace HotelBooking
                 c0 = int.Parse(CntSingle.Text);
             }
             modeling.CostRooms[0] = c0;
-            if (CntSingle.Text == "")
+            if (CntDouble.Text == "")
             {
                 c1 = 100;
             }
@@ -163,18 +155,20 @@ namespace HotelBooking
             StopOutput = false;
             if (!ReadInf) modeling = new Modeling();
             ShowSection("Results");
-            ResultsTextBox.Text = "";
+            textInput.SourceData = "";
             List<string> res = modeling.Start();
             await Task.Run(() =>
             {
-                for (int i = 0; i < res.Count && !StopOutput; ++i)
+                for (int i = 0; i < res.Count; ++i)
                 {
-                    //textInput.SourceData += $"\nЭто строка номер {i}";
-                    textInput.SourceData = res[i];
-                    Thread.Sleep(1000);
+                    Dispatcher.Invoke(() => { textInput.SourceData = res[i]; });
+                    for (int j = 0; j < 3 && !StopOutput; j++)
+                    {
+                        Thread.Sleep(500);
+                    }
                 }
             });
-            ResultsTextBox.Text = modeling.GetInf();
+            textInput.SourceData = modeling.GetInf();
             ReadInf = false;
         }
 
@@ -494,17 +488,6 @@ namespace HotelBooking
                 hostel = new Hotel(CountRooms, CostRooms);
                 while (time < M * 24)
                 {
-                    if (time % time_step == 0) // генерация заявки
-                    {
-                        string type = requestGenerator.room_type_random();
-                        int checkInDate = requestGenerator.day(time / 24, M);
-                        int checkOutDate = requestGenerator.day(checkInDate, M);
-                        int res = hostel.BookRoom(type, checkInDate, checkOutDate);
-                        Console.WriteLine($"{time}  {type} {checkInDate} {checkOutDate}");
-                        if (res == -1) ++bedRequest;
-                        else ++goodRequest;
-                    }
-
                     List<pair> del = new List<pair>();
                     for (int i = 0; i < hostel.occupied.Count; i++)
                     {
@@ -518,6 +501,19 @@ namespace HotelBooking
                         final_cost += hostel.CheckOut(del[i].f, del[i].s);
                     }
                     del.Clear();
+
+
+                    if (time % time_step == 0) // генерация заявки
+                    {
+                        string type = requestGenerator.room_type_random();
+                        int checkInDate = requestGenerator.day(time / 24, M);
+                        int checkOutDate = requestGenerator.day(checkInDate, M);
+                        int res = hostel.BookRoom(type, checkInDate, checkOutDate);
+                        if (res == -1) ++bedRequest;
+                        else ++goodRequest;
+                    }
+
+                    
 
                     SumBuzyRooms = 0;
                     for (int i = 0; i < 5; ++i)
@@ -545,6 +541,7 @@ namespace HotelBooking
                         for (int i = 0; i < hostel.singleRooms.Length; ++i)
                         {
                             inf += hostel.singleRooms[i].Number.ToString() + "     " + "одноместный" + "     " + (Math.Round(hostel.singleRooms[i].Cost() * 100) / 100).ToString() + "     ";
+                            //inf += hostel.singleRooms[i].FirstDay.ToString() + "    " + hostel.singleRooms[i].LastDay.ToString() + "     ";
                             if (hostel.singleRooms[i].FirstDay <= time / 24 && hostel.singleRooms[i].LastDay >= time / 24 && hostel.singleRooms[i].Days != 0) inf += "занят" + "     ";
                             else if (hostel.singleRooms[i].Days != 0) inf += "забронирован" + "     ";
                             else inf += "свободен" + "     ";
@@ -553,6 +550,7 @@ namespace HotelBooking
                         for (int i = 0; i < hostel.doubleRooms.Length; ++i)
                         {
                             inf += hostel.doubleRooms[i].Number.ToString() + "     " + "двухместный" + "     " + (Math.Round(hostel.doubleRooms[i].Cost() * 100) / 100).ToString() + "     ";
+                            //inf += hostel.doubleRooms[i].FirstDay.ToString() + "    " + hostel.doubleRooms[i].LastDay.ToString() + "     ";
                             if (hostel.doubleRooms[i].FirstDay <= time / 24 && hostel.doubleRooms[i].LastDay >= time / 24 && hostel.doubleRooms[i].Days != 0) inf += "занят" + "     ";
                             else if (hostel.doubleRooms[i].Days != 0) inf += "забронирован" + "     ";
                             else inf += "свободен" + "     ";
@@ -561,6 +559,7 @@ namespace HotelBooking
                         for (int i = 0; i < hostel.suiteRooms.Length; ++i)
                         {
                             inf += hostel.suiteRooms[i].Number.ToString() + "     " + "люкс" + "     " + (Math.Round(hostel.suiteRooms[i].Cost() * 100) / 100).ToString() + "     ";
+                            //inf += hostel.suiteRooms[i].FirstDay.ToString() + "    " + hostel.suiteRooms[i].LastDay.ToString() + "     ";
                             if (hostel.suiteRooms[i].FirstDay <= time / 24 && hostel.suiteRooms[i].LastDay >= time / 24 && hostel.suiteRooms[i].Days != 0) inf += "занят" + "     ";
                             else if (hostel.suiteRooms[i].Days != 0) inf += "забронирован" + "     ";
                             else inf += "свободен" + "     ";
@@ -571,6 +570,7 @@ namespace HotelBooking
                         for (int i = 0; i < hostel.halfSuiteRooms.Length; ++i)
                         {
                             inf += hostel.halfSuiteRooms[i].Number.ToString() + "     " + "полулюкс" + "     " + (Math.Round(hostel.halfSuiteRooms[i].Cost() * 100) / 100).ToString() + "     ";
+                            //inf += hostel.halfSuiteRooms[i].FirstDay.ToString() + "    " + hostel.halfSuiteRooms[i].LastDay.ToString() + "     ";
                             if (hostel.halfSuiteRooms[i].FirstDay <= time / 24 && hostel.halfSuiteRooms[i].LastDay >= time / 24 && hostel.halfSuiteRooms[i].Days != 0) inf += "занят" + "     ";
                             else if (hostel.halfSuiteRooms[i].Days != 0) inf += "забронирован" + "     ";
                             else inf += "свободен" + "     ";
@@ -581,6 +581,7 @@ namespace HotelBooking
                         for (int i = 0; i < hostel.doubleWithSofaRooms.Length; ++i)
                         {
                             inf += hostel.doubleWithSofaRooms[i].Number.ToString() + "     " + "двухместный с диваном" + "     " + (Math.Round(hostel.doubleWithSofaRooms[i].Cost() * 100) / 100).ToString() + "     ";
+                            //inf += hostel.doubleWithSofaRooms[i].FirstDay.ToString() + "    " + hostel.doubleWithSofaRooms[i].LastDay.ToString() + "     ";
                             if (hostel.doubleWithSofaRooms[i].FirstDay <= time / 24 && hostel.doubleWithSofaRooms[i].LastDay >= time / 24 && hostel.doubleWithSofaRooms[i].Days != 0) inf += "занят" + "     ";
                             else if (hostel.doubleWithSofaRooms[i].Days != 0) inf += "забронирован" + "     ";
                             else inf += "свободен" + "     ";
@@ -594,8 +595,6 @@ namespace HotelBooking
                          */
 
                         resalt.Add(inf);
-                        //ResultsTextBox.Text = inf;
-                        //Thread.Sleep(100);
                     }
                     ++time;
                 }

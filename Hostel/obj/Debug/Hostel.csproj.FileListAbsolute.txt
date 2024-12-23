@@ -57,3 +57,4 @@ C:\Users\anna2\source\repos\Hostel\Hostel\obj\Debug\Hostel.g.resources
 C:\Users\anna2\source\repos\Hostel\Hostel\obj\Debug\Hostel.Properties.Resources.resources
 C:\Users\anna2\source\repos\Hostel\Hostel\obj\Debug\Hostel.csproj.GenerateResource.cache
 C:\Users\anna2\source\repos\Hostel\Hostel\obj\Debug\Hostel.csproj.CoreCompileInputs.cache
+C:\Users\anna2\OneDrive\Рабочий стол\Новая папка (2)\Hostel\Hostel\obj\Debug\Hostel_MarkupCompile.lref

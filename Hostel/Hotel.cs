@@ -129,7 +129,7 @@ namespace Hostel
                             currentRoom[i].FirstDay = checkInDate;
                             currentRoom[i].LastDay = checkOutDate;
                             currentRoom[i].Days = checkOutDate - checkInDate;
-                            occupied.Add(new pair (currentRoom[i].Number, checkInDate));
+                            occupied.Add(new pair(currentRoom[i].Number, checkOutDate));
                             switch (roomType)
                             {
                                 case RoomType.Single:
