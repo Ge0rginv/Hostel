@@ -4,7 +4,10 @@
         Title="Hotel Booking" Height="700" Width="1200" Background="#f3f3f3"
         x:Name="MAAAAIN">
 
-    <Grid Margin="20">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+
+
+        <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -16,6 +19,7 @@
                        VerticalAlignment="Center" Margin="20,0" DockPanel.Dock="Left"/>
         </DockPanel>
 
+        
         <!-- Main Content -->
         <Grid Grid.Row="1" Margin="10,20,10,10" HorizontalAlignment="Center" VerticalAlignment="Center" >
             <Grid.ColumnDefinitions>
@@ -229,4 +233,6 @@
             </StackPanel>
         </Grid>
     </Grid>
+    </ScrollViewer>
+
 </Window>
