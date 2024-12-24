@@ -5,7 +5,9 @@
         Title="Hotel Booking" Height="700" Width="1200" Background="#f3f3f3"
         x:Name="MAAAAIN">
 
-    <Grid Margin="20">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+
+        <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -231,4 +233,6 @@
             </StackPanel>
         </Grid>
     </Grid>
+
+    </ScrollViewer>
 </Window>
