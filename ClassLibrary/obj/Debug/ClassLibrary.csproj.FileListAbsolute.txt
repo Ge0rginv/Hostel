@@ -1,0 +1,30 @@
+C:\Users\anna2\OneDrive\Рабочий стол\Новая папка (2)\Hostel\ClassLibrary\bin\Debug\ClassLibrary.dll
+C:\Users\anna2\OneDrive\Рабочий стол\Новая папка (2)\Hostel\ClassLibrary\bin\Debug\ClassLibrary.pdb
+C:\Users\anna2\OneDrive\Рабочий стол\Новая папка (2)\Hostel\ClassLibrary\obj\Debug\ClassLibrary.csproj.AssemblyReference.cache
+C:\Users\anna2\OneDrive\Рабочий стол\Новая папка (2)\Hostel\ClassLibrary\obj\Debug\ClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\anna2\OneDrive\Рабочий стол\Новая папка (2)\Hostel\ClassLibrary\obj\Debug\ClassLibrary.dll
+C:\Users\anna2\OneDrive\Рабочий стол\Новая папка (2)\Hostel\ClassLibrary\obj\Debug\ClassLibrary.pdb
+C:\Users\anna2\OneDrive\Рабочий стол\Hostel\ClassLibrary\obj\Debug\ClassLibrary.csproj.AssemblyReference.cache
+C:\Users\anna2\OneDrive\Рабочий стол\Hostel\ClassLibrary\obj\Debug\ClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\anna2\OneDrive\Рабочий стол\Hostel\ClassLibrary\obj\Debug\ClassLibrary.dll
+C:\Users\anna2\OneDrive\Рабочий стол\Hostel\ClassLibrary\obj\Debug\ClassLibrary.pdb
+C:\Users\anna2\OneDrive\Рабочий стол\Hostel\ClassLibrary\bin\Debug\ClassLibrary.dll
+C:\Users\anna2\OneDrive\Рабочий стол\Hostel\ClassLibrary\bin\Debug\ClassLibrary.pdb
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (2)\Hostel\ClassLibrary\bin\Debug\ClassLibrary.dll
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (2)\Hostel\ClassLibrary\bin\Debug\ClassLibrary.pdb
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (2)\Hostel\ClassLibrary\obj\Debug\ClassLibrary.csproj.AssemblyReference.cache
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (2)\Hostel\ClassLibrary\obj\Debug\ClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (2)\Hostel\ClassLibrary\obj\Debug\ClassLibrary.dll
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (2)\Hostel\ClassLibrary\obj\Debug\ClassLibrary.pdb
+C:\Users\anna2\Downloads\Telegram Desktop\Hostel 4\Hostel\ClassLibrary\bin\Debug\ClassLibrary.dll
+C:\Users\anna2\Downloads\Telegram Desktop\Hostel 4\Hostel\ClassLibrary\bin\Debug\ClassLibrary.pdb
+C:\Users\anna2\Downloads\Telegram Desktop\Hostel 4\Hostel\ClassLibrary\obj\Debug\ClassLibrary.csproj.AssemblyReference.cache
+C:\Users\anna2\Downloads\Telegram Desktop\Hostel 4\Hostel\ClassLibrary\obj\Debug\ClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\anna2\Downloads\Telegram Desktop\Hostel 4\Hostel\ClassLibrary\obj\Debug\ClassLibrary.dll
+C:\Users\anna2\Downloads\Telegram Desktop\Hostel 4\Hostel\ClassLibrary\obj\Debug\ClassLibrary.pdb
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (3)\Hostel\ClassLibrary\bin\Debug\ClassLibrary.dll
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (3)\Hostel\ClassLibrary\bin\Debug\ClassLibrary.pdb
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (3)\Hostel\ClassLibrary\obj\Debug\ClassLibrary.csproj.AssemblyReference.cache
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (3)\Hostel\ClassLibrary\obj\Debug\ClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (3)\Hostel\ClassLibrary\obj\Debug\ClassLibrary.dll
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (3)\Hostel\ClassLibrary\obj\Debug\ClassLibrary.pdb

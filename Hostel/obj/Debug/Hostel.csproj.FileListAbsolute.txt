@@ -58,3 +58,78 @@ C:\Users\anna2\source\repos\Hostel\Hostel\obj\Debug\Hostel.Properties.Resources.
 C:\Users\anna2\source\repos\Hostel\Hostel\obj\Debug\Hostel.csproj.GenerateResource.cache
 C:\Users\anna2\source\repos\Hostel\Hostel\obj\Debug\Hostel.csproj.CoreCompileInputs.cache
 C:\Users\anna2\OneDrive\Рабочий стол\Новая папка (2)\Hostel\Hostel\obj\Debug\Hostel_MarkupCompile.lref
+C:\Users\anna2\OneDrive\Рабочий стол\Новая папка (2)\Hostel\Hostel\bin\Debug\ClassLibrary.dll
+C:\Users\anna2\OneDrive\Рабочий стол\Новая папка (2)\Hostel\Hostel\bin\Debug\ClassLibrary.pdb
+C:\Users\anna2\OneDrive\Рабочий стол\Новая папка (2)\Hostel\Hostel\obj\Debug\Hostel.csproj.CopyComplete
+C:\Users\anna2\OneDrive\Рабочий стол\Hostel\Hostel\bin\Debug\Hostel.exe.config
+C:\Users\anna2\OneDrive\Рабочий стол\Hostel\Hostel\bin\Debug\Hostel.exe
+C:\Users\anna2\OneDrive\Рабочий стол\Hostel\Hostel\bin\Debug\Hostel.pdb
+C:\Users\anna2\OneDrive\Рабочий стол\Hostel\Hostel\bin\Debug\ClassLibrary.dll
+C:\Users\anna2\OneDrive\Рабочий стол\Hostel\Hostel\bin\Debug\ClassLibrary.pdb
+C:\Users\anna2\OneDrive\Рабочий стол\Hostel\Hostel\obj\Debug\Hostel.csproj.AssemblyReference.cache
+C:\Users\anna2\OneDrive\Рабочий стол\Hostel\Hostel\obj\Debug\MainWindow.g.cs
+C:\Users\anna2\OneDrive\Рабочий стол\Hostel\Hostel\obj\Debug\App.g.cs
+C:\Users\anna2\OneDrive\Рабочий стол\Hostel\Hostel\obj\Debug\Hostel_MarkupCompile.cache
+C:\Users\anna2\OneDrive\Рабочий стол\Hostel\Hostel\obj\Debug\Hostel_MarkupCompile.lref
+C:\Users\anna2\OneDrive\Рабочий стол\Hostel\Hostel\obj\Debug\MainWindow.baml
+C:\Users\anna2\OneDrive\Рабочий стол\Hostel\Hostel\obj\Debug\Hostel.g.resources
+C:\Users\anna2\OneDrive\Рабочий стол\Hostel\Hostel\obj\Debug\Hostel.Properties.Resources.resources
+C:\Users\anna2\OneDrive\Рабочий стол\Hostel\Hostel\obj\Debug\Hostel.csproj.GenerateResource.cache
+C:\Users\anna2\OneDrive\Рабочий стол\Hostel\Hostel\obj\Debug\Hostel.csproj.CoreCompileInputs.cache
+C:\Users\anna2\OneDrive\Рабочий стол\Hostel\Hostel\obj\Debug\Hostel.csproj.CopyComplete
+C:\Users\anna2\OneDrive\Рабочий стол\Hostel\Hostel\obj\Debug\Hostel.exe
+C:\Users\anna2\OneDrive\Рабочий стол\Hostel\Hostel\obj\Debug\Hostel.pdb
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (2)\Hostel\Hostel\bin\Debug\Hostel.exe.config
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (2)\Hostel\Hostel\bin\Debug\Hostel.exe
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (2)\Hostel\Hostel\bin\Debug\Hostel.pdb
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (2)\Hostel\Hostel\bin\Debug\ClassLibrary.dll
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (2)\Hostel\Hostel\bin\Debug\ClassLibrary.pdb
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (2)\Hostel\Hostel\obj\Debug\Hostel.csproj.AssemblyReference.cache
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (2)\Hostel\Hostel\obj\Debug\MainWindow.g.cs
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (2)\Hostel\Hostel\obj\Debug\App.g.cs
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (2)\Hostel\Hostel\obj\Debug\Hostel_MarkupCompile.cache
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (2)\Hostel\Hostel\obj\Debug\Hostel_MarkupCompile.lref
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (2)\Hostel\Hostel\obj\Debug\MainWindow.baml
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (2)\Hostel\Hostel\obj\Debug\Hostel.g.resources
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (2)\Hostel\Hostel\obj\Debug\Hostel.Properties.Resources.resources
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (2)\Hostel\Hostel\obj\Debug\Hostel.csproj.GenerateResource.cache
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (2)\Hostel\Hostel\obj\Debug\Hostel.csproj.CoreCompileInputs.cache
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (2)\Hostel\Hostel\obj\Debug\Hostel.csproj.Up2Date
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (2)\Hostel\Hostel\obj\Debug\Hostel.exe
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (2)\Hostel\Hostel\obj\Debug\Hostel.pdb
+C:\Users\anna2\Downloads\Telegram Desktop\Hostel 4\Hostel\Hostel\bin\Debug\Hostel.exe.config
+C:\Users\anna2\Downloads\Telegram Desktop\Hostel 4\Hostel\Hostel\bin\Debug\Hostel.exe
+C:\Users\anna2\Downloads\Telegram Desktop\Hostel 4\Hostel\Hostel\bin\Debug\Hostel.pdb
+C:\Users\anna2\Downloads\Telegram Desktop\Hostel 4\Hostel\Hostel\bin\Debug\ClassLibrary.dll
+C:\Users\anna2\Downloads\Telegram Desktop\Hostel 4\Hostel\Hostel\bin\Debug\ClassLibrary.pdb
+C:\Users\anna2\Downloads\Telegram Desktop\Hostel 4\Hostel\Hostel\obj\Debug\Hostel.csproj.AssemblyReference.cache
+C:\Users\anna2\Downloads\Telegram Desktop\Hostel 4\Hostel\Hostel\obj\Debug\MainWindow.g.cs
+C:\Users\anna2\Downloads\Telegram Desktop\Hostel 4\Hostel\Hostel\obj\Debug\App.g.cs
+C:\Users\anna2\Downloads\Telegram Desktop\Hostel 4\Hostel\Hostel\obj\Debug\Hostel_MarkupCompile.cache
+C:\Users\anna2\Downloads\Telegram Desktop\Hostel 4\Hostel\Hostel\obj\Debug\Hostel_MarkupCompile.lref
+C:\Users\anna2\Downloads\Telegram Desktop\Hostel 4\Hostel\Hostel\obj\Debug\MainWindow.baml
+C:\Users\anna2\Downloads\Telegram Desktop\Hostel 4\Hostel\Hostel\obj\Debug\Hostel.g.resources
+C:\Users\anna2\Downloads\Telegram Desktop\Hostel 4\Hostel\Hostel\obj\Debug\Hostel.Properties.Resources.resources
+C:\Users\anna2\Downloads\Telegram Desktop\Hostel 4\Hostel\Hostel\obj\Debug\Hostel.csproj.GenerateResource.cache
+C:\Users\anna2\Downloads\Telegram Desktop\Hostel 4\Hostel\Hostel\obj\Debug\Hostel.csproj.CoreCompileInputs.cache
+C:\Users\anna2\Downloads\Telegram Desktop\Hostel 4\Hostel\Hostel\obj\Debug\Hostel.csproj.CopyComplete
+C:\Users\anna2\Downloads\Telegram Desktop\Hostel 4\Hostel\Hostel\obj\Debug\Hostel.exe
+C:\Users\anna2\Downloads\Telegram Desktop\Hostel 4\Hostel\Hostel\obj\Debug\Hostel.pdb
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (3)\Hostel\Hostel\bin\Debug\Hostel.exe.config
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (3)\Hostel\Hostel\bin\Debug\Hostel.exe
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (3)\Hostel\Hostel\bin\Debug\Hostel.pdb
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (3)\Hostel\Hostel\bin\Debug\ClassLibrary.dll
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (3)\Hostel\Hostel\bin\Debug\ClassLibrary.pdb
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (3)\Hostel\Hostel\obj\Debug\Hostel.csproj.AssemblyReference.cache
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (3)\Hostel\Hostel\obj\Debug\MainWindow.g.cs
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (3)\Hostel\Hostel\obj\Debug\App.g.cs
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (3)\Hostel\Hostel\obj\Debug\Hostel_MarkupCompile.cache
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (3)\Hostel\Hostel\obj\Debug\Hostel_MarkupCompile.lref
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (3)\Hostel\Hostel\obj\Debug\MainWindow.baml
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (3)\Hostel\Hostel\obj\Debug\Hostel.g.resources
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (3)\Hostel\Hostel\obj\Debug\Hostel.Properties.Resources.resources
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (3)\Hostel\Hostel\obj\Debug\Hostel.csproj.GenerateResource.cache
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (3)\Hostel\Hostel\obj\Debug\Hostel.csproj.CoreCompileInputs.cache
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (3)\Hostel\Hostel\obj\Debug\Hostel.csproj.Up2Date
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (3)\Hostel\Hostel\obj\Debug\Hostel.exe
+C:\Users\Betrikkolo\Downloads\Telegram Desktop\Hostel (3)\Hostel\Hostel\obj\Debug\Hostel.pdb
